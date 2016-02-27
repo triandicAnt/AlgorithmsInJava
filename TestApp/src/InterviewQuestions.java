@@ -1,6 +1,5 @@
 import java.util.HashMap;
 
-
 public class InterviewQuestions {
 
 	/**
@@ -22,6 +21,16 @@ public class InterviewQuestions {
 		System.out.println();
 		int []c =new int []{1,2,4,3,8,9};
 		i.printPairs(c, 10);
+		i.findFirstAndSecondLargest(c);
+		
+		
+		int d[] = new int[]{2,4,1,5,7,4,9};
+		BinaryTree bt = new BinaryTree();
+		
+		for(int p : d){
+			bt.addRecursive(p);
+		}
+		bt.inOrder(bt.root);
 		
 
 	}
@@ -194,6 +203,26 @@ public class InterviewQuestions {
 			}
 		}
 	}
+	/*
+	 * Q2. Find the first and second largest number in an array.
+	 */
+	void findFirstAndSecondLargest(int a[]){
+		int first = Integer.MIN_VALUE;
+		int second = Integer.MIN_VALUE;
+		for(int i : a){
+			if(i>first && i>second){
+				second = first;
+				first = i;
+			}
+			else if(i>second){
+				second = i;
+			}
+		}
+		System.out.println(first + " " + second);
+	}
+	/*
+	 * Q3. Add Method of binary tree insertion.
+	 */
 
 }
 
@@ -201,3 +230,68 @@ public class InterviewQuestions {
 	int data;
 	MyLinkedList next;
 }
+ 
+ class BTNode{
+		int data;
+		BTNode left;
+		BTNode right;
+	}
+ 
+ class BinaryTree{
+	 BTNode root;
+	 
+	 private BTNode createNode(int data){
+			BTNode newNode = new BTNode();
+			newNode.data = data;
+			newNode.left = newNode.right = null;
+			return newNode;
+		}
+		void inOrder(BTNode root){
+			if(root==null)
+				return;
+			inOrder(root.left);
+			System.out.print(root.data + " ");
+			inOrder(root.right);
+		}
+	 private void add(int value){
+			if(root==null)
+				root = createNode(value);
+			else{
+				BTNode temp = root;
+				BTNode parent = root;
+				while(temp!=null){
+					if(temp.data>=value){
+						parent = temp;
+						temp =temp.left;
+					}
+					else{
+						parent = temp;
+						temp = temp.right; 
+					}
+				}
+				if(value<=parent.data){
+					parent.left = createNode(value);
+				}
+				else{
+					parent.right = createNode(value);
+				}
+			}
+			
+		}
+		void addRecursive(int value){
+			root = addRecursive(root, value);
+		}
+		private BTNode addRecursive(BTNode root, int data){
+			if(root == null){
+				root = createNode(data);
+				return root;
+			}
+			if(data<=root.data){
+				root.left =  addRecursive(root.left, data);
+			}
+			else{
+				root.right =  addRecursive(root.right, data);
+			}
+			return root;
+		}
+ }

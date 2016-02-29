@@ -8,6 +8,7 @@ class BTNode{
 	BTNode left;
 	BTNode right;
 }
+@SuppressWarnings("all")
 public class BinaryTree {
 
 	/**
@@ -26,16 +27,19 @@ public class BinaryTree {
 			bt.addRecursive(i);
 		}
 		//System.out.println(root.data);
-//		bt.inOrder(bt.root);
+		bt.inOrder(bt.root);
 		//bt.inOrderIterative(bt.root);
-		bt.bfs(bt.root);
+		/*bt.bfs(bt.root);
 		System.out.println();
 		bt.postOrder(bt.root);
 		System.out.println();
 		bt.preOrderIterative(bt.root);
 		System.out.println();
 		System.out.println(bt.findSum(bt.root));
-		System.out.println(bt.countTree(3));
+		System.out.println(bt.countTree(3)); */
+		System.out.println(bt.nodeExist(bt.root, 4));
+		System.out.println(bt.findLCSBST(bt.root, 5, 7).data);
+		System.out.println(bt.findLCABT(bt.root, 2, 7).data);
 
 	}
 	
@@ -56,7 +60,6 @@ public class BinaryTree {
 		inOrder(root.left);
 		System.out.print(root.data + " ");
 		inOrder(root.right);
-		System.out.println();
 	}
 	int sum = 0;
 	private int findSum(BTNode root){
@@ -188,6 +191,38 @@ public class BinaryTree {
 			root.right =  addRecursive(root.right, data);
 		}
 		return root;
+	}
+	
+	private BTNode findLCSBST(BTNode root, int n1, int n2){
+		if(root == null)
+			return root;
+		if(root.data>n1 && root.data >n2)
+			return findLCSBST(root.left, n1,n2);
+		else if(root.data<n1 && root.data<n2)
+			return findLCSBST(root.right, n1, n2);
+		else
+			return root;
+	}
+	private boolean nodeExist(BTNode root, int n){
+		if(root==null)
+			return false;
+		else if(root.data == n)
+			return true;
+		else if(root.data>n)
+			return nodeExist(root.left, n);
+		else
+			return nodeExist(root.right, n);
+	}
+	private BTNode findLCABT(BTNode root, int n1, int n2){
+		if(root == null)
+			return root;
+		else if(root.data == n1 || root.data == n2)
+			return root;
+		BTNode leftLCA = findLCABT(root.left, n1, n2);
+		BTNode rightLCA = findLCABT(root.right, n1, n2);
+		if(leftLCA!=null && rightLCA!=null)
+			return root;
+		return (leftLCA!=null?leftLCA:rightLCA);
 	}
 
 }

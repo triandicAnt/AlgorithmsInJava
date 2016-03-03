@@ -44,9 +44,11 @@ public class BinaryTree {
 		int [] in_order = new int[]{4,2,5,1,6,3};
 		int [] pre_order = new int []{1,2,4,5,3,6};
 		BTNode root = bt.buildTree(pre_order, in_order, 0, in_order.length-1);
-		System.out.println("printing the tree");
-		bt.inOrder(root);
+		//System.out.println("printing the tree");
+		//bt.inOrder(root);
 //		System.out.println(bt.searchNode(in_order, 3));
+//		bt.printAllAncestors(root, 6);
+		bt.printZigZagFormat(root);
 	}
 	
 	/**
@@ -349,6 +351,60 @@ public class BinaryTree {
 		}
 		return -1;
 	}
-
+	/**
+	 * Print all ancestors of a given node
+	 * @param root
+	 * @param n
+	 * @return
+	 */
+	boolean printAllAncestors(BTNode root, int n){
+		if(root==null)
+			return false;
+		if(root.data ==n)
+			return true;
+		if( printAllAncestors(root.left, n) || printAllAncestors(root.right, n)){
+			System.out.print(root.data + " ");
+			return true;
+		}
+		return false;
+	}
+	/**
+	 * Height of Tree
+	 * @param root
+	 * @return
+	 */
+	int heightOfTree(BTNode root){
+		if(root == null)
+			return 0;
+		return Math.max(heightOfTree(root.left), heightOfTree(root.right)) +1;
+	}
+	/**
+	 * print zig-zag
+	 * @param root
+	 */
+	void printZigZagFormat(BTNode root){
+		int h = heightOfTree(root);
+		boolean flag = false;
+		for (int i = 1; i <= h; i++) {
+			printLevelOrder( root, i, flag);
+			flag = !flag;
+		}
+	}
+	void printLevelOrder(BTNode root, int h, boolean flag){
+		if(root == null)
+			return;
+		if(h==1)
+			System.out.print(root.data + " ");
+		else if(h>1){
+			if(flag){
+				printLevelOrder(root.left, h-1, flag);
+				printLevelOrder(root.right, h-1, flag);
+			}
+			else{
+				printLevelOrder(root.right, h-1, flag);
+				printLevelOrder(root.left, h-1, flag);
+			}
+		}
+	}
 }
 

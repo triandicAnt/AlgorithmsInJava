@@ -27,7 +27,7 @@ public class BinaryTree {
 			bt.addRecursive(i);
 		}
 		//System.out.println(root.data);
-		bt.inOrder(bt.root);
+//		bt.inOrder(bt.root);
 		//bt.inOrderIterative(bt.root);
 		/*bt.bfs(bt.root);
 		System.out.println();
@@ -37,10 +37,16 @@ public class BinaryTree {
 		System.out.println();
 		System.out.println(bt.findSum(bt.root));
 		System.out.println(bt.countTree(3)); */
-		System.out.println(bt.nodeExist(bt.root, 4));
-		System.out.println(bt.findLCSBST(bt.root, 5, 7).data);
-		System.out.println(bt.findLCABT(bt.root, 2, 7).data);
-
+//		System.out.println(bt.nodeExist(bt.root, 4));
+//		System.out.println(bt.findLCSBST(bt.root, 5, 7).data);
+//		System.out.println(bt.findLCABT(bt.root, 2, 7).data);
+		
+		int [] in_order = new int[]{4,2,5,1,6,3};
+		int [] pre_order = new int []{1,2,4,5,3,6};
+		BTNode root = bt.buildTree(pre_order, in_order, 0, in_order.length-1);
+		System.out.println("printing the tree");
+		bt.inOrder(root);
+//		System.out.println(bt.searchNode(in_order, 3));
 	}
 	
 	/**
@@ -48,12 +54,19 @@ public class BinaryTree {
 	 * @param data
 	 * @return
 	 */
+	
 	private BTNode createNode(int data){
 		BTNode newNode = new BTNode();
 		newNode.data = data;
 		newNode.left = newNode.right = null;
 		return newNode;
 	}
+	
+	// In-order recursive
+	/**
+	 * 
+	 * @param root
+	 */
 	private void inOrder(BTNode root){
 		if(root==null)
 			return;
@@ -61,7 +74,15 @@ public class BinaryTree {
 		System.out.print(root.data + " ");
 		inOrder(root.right);
 	}
+	
+	// find sum of all nodes of a binary tree
+	
 	int sum = 0;
+	/**
+	 * 
+	 * @param root
+	 * @return
+	 */
 	private int findSum(BTNode root){
 		if(root == null){
 			return 0;
@@ -71,6 +92,13 @@ public class BinaryTree {
 		findSum(root.right);
 		return sum;
 	}
+	
+	// Count number of bs tree created from a given number,
+	/**
+	 * 
+	 * @param num
+	 * @return
+	 */
 	private int countTree(int num){
 		if(num==0 || num ==1)
 			return 1;
@@ -82,6 +110,12 @@ public class BinaryTree {
 		}
 		return sum;
 	}
+	
+	// Iterative in order traversal
+	/**
+	 * 
+	 * @param root
+	 */
 	private void inOrderIterative(BTNode root){
 		if(root == null)
 			return;
@@ -99,6 +133,12 @@ public class BinaryTree {
 			root = root.right;
 		}
 	}
+	
+	// Iterative pre order traversal
+	/**
+	 * 
+	 * @param root
+	 */
 	private void preOrderIterative(BTNode root){
 		if(root == null)
 			return;
@@ -116,6 +156,12 @@ public class BinaryTree {
 			root = root.right;
 		}
 	}
+	
+	// Iterative post order traversal
+	/**
+	 * 
+	 * @param root
+	 */
 	private void postOrder(BTNode root){
 		if(root == null)
 			return;
@@ -135,6 +181,12 @@ public class BinaryTree {
 			System.out.print(root.data + " ");
 		}
 	}
+	
+	// Iterative level order traversal
+	/**
+	 * 
+	 * @param root
+	 */
 	private void bfs(BTNode root){
 		if(root == null)
 			return;
@@ -151,6 +203,11 @@ public class BinaryTree {
 		
 	}
 	
+	// Add node to a binary tree iteratively
+	/**
+	 * 
+	 * @param value
+	 */
 	private void add(int value){
 		if(root==null)
 			root = createNode(value);
@@ -176,9 +233,16 @@ public class BinaryTree {
 		}
 		
 	}
+	
+	// Add node to a binary tree recursively
+	/**
+	 * 
+	 * @param value
+	 */
 	private void addRecursive(int value){
 		root = addRecursive(root, value);
 	}
+	
 	private BTNode addRecursive(BTNode root, int data){
 		if(root == null){
 			root = createNode(data);
@@ -193,6 +257,15 @@ public class BinaryTree {
 		return root;
 	}
 	
+	// find LCA in a Binary Search Tree
+
+	/**
+	 * 
+	 * @param root
+	 * @param n1
+	 * @param n2
+	 * @return
+	 */
 	private BTNode findLCSBST(BTNode root, int n1, int n2){
 		if(root == null)
 			return root;
@@ -203,6 +276,7 @@ public class BinaryTree {
 		else
 			return root;
 	}
+	
 	private boolean nodeExist(BTNode root, int n){
 		if(root==null)
 			return false;
@@ -213,6 +287,15 @@ public class BinaryTree {
 		else
 			return nodeExist(root.right, n);
 	}
+	
+	// find LCA in a Binary Tree
+	/**
+	 * 
+	 * @param root
+	 * @param n1
+	 * @param n2
+	 * @return
+	 */
 	private BTNode findLCABT(BTNode root, int n1, int n2){
 		if(root == null)
 			return root;
@@ -223,6 +306,48 @@ public class BinaryTree {
 		if(leftLCA!=null && rightLCA!=null)
 			return root;
 		return (leftLCA!=null?leftLCA:rightLCA);
+	}
+	static int pre_index = 0;
+	
+	// Build a tree with given In-order and pre order .
+	/**
+	 * 
+	 * @param preOrder
+	 * @param inOrder
+	 * @param in_start
+	 * @param in_end
+	 * @return
+	 */
+	BTNode buildTree(int [] preOrder, int [] inOrder, int in_start, int in_end){
+		if(in_start>in_end){
+			return null;
+		}
+		BTNode newNode = new BTNode();
+		newNode.data = preOrder[pre_index];
+		pre_index ++;
+		if(in_start == in_end){
+			return newNode;
+		}
+		int in_index = 0;
+		in_index= searchNode(inOrder, newNode.data);
+		newNode.left = buildTree(preOrder, inOrder, in_start, in_index-1);
+		newNode.right = buildTree(preOrder, inOrder, in_index+1, in_end);
+		return newNode;
+		
+		
+	}
+	/**
+	 * 
+	 * @param inOrder
+	 * @param data
+	 * @return
+	 */
+	int searchNode(int [] inOrder, int data){
+		for (int i = 0; i < inOrder.length; i++) {
+			if(inOrder[i]==data)
+				return i;
+		}
+		return -1;
 	}
 
 }

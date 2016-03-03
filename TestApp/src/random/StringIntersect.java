@@ -1,7 +1,8 @@
+package random;
 /**
  * 
  */
-package random;
+
 
 import java.util.TreeMap;
 

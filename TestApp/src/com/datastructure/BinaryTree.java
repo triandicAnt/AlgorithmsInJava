@@ -27,7 +27,7 @@ public class BinaryTree {
 			bt.addRecursive(i);
 		}
 		//System.out.println(root.data);
-//		bt.inOrder(bt.root);
+		bt.inOrder(bt.root);
 		//bt.inOrderIterative(bt.root);
 		/*bt.bfs(bt.root);
 		System.out.println();
@@ -48,7 +48,8 @@ public class BinaryTree {
 		//bt.inOrder(root);
 //		System.out.println(bt.searchNode(in_order, 3));
 //		bt.printAllAncestors(root, 6);
-		bt.printZigZagFormat(root);
+//		bt.printZigZagFormat(root);
+		System.out.println(bt.findLevelWithMaxSum(root));
 	}
 	
 	/**
@@ -390,6 +391,12 @@ public class BinaryTree {
 			flag = !flag;
 		}
 	}
+	/**
+	 * Print in spiral way
+	 * @param root
+	 * @param h
+	 * @param flag
+	 */
 	void printLevelOrder(BTNode root, int h, boolean flag){
 		if(root == null)
 			return;
@@ -405,6 +412,44 @@ public class BinaryTree {
 				printLevelOrder(root.left, h-1, flag);
 			}
 		}
+	}
+	
+	/**
+	 * Find level with maximum sum 
+	 * @param root
+	 * @return
+	 */
+	int findLevelWithMaxSum(BTNode root){
+		if(root ==null)
+			return 0;
+		int level = 0;
+		int maxLevel = 0;
+		int curSum = 0;
+		int maxSum = 0;
+		Queue<BTNode> q = new LinkedList<BTNode>();
+		q.add(root);
+		q.add(null);
+		while(!q.isEmpty()){
+			BTNode temp = q.poll();
+			if(temp==null){
+				if(curSum>maxSum){
+					maxSum = curSum;
+					maxLevel = level;
+				}
+				if(!q.isEmpty()){
+					q.add(null);
+				}
+				level ++;
+			}
+			else{
+				curSum = curSum + root.data;
+				if(temp.left!=null)
+					q.add(temp.left);
+				if(temp.right!=null)
+					q.add(temp.right);
+			}
+		}
+		return maxLevel;
 	}
 }
 

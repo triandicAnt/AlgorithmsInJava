@@ -1,27 +1,32 @@
 import java.util.HashMap;
 
-public class InterviewQuestions {
+
+import com.datastructure.LinkedList;
+import com.datastructure.MyLinkedList;
+public class InterviewQuestions extends MyLinkedList{
 
 	/**
 	 * @param args
 	 */
+	LinkedList root;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		InterviewQuestions i = new InterviewQuestions();
 		long a[][] = i.fillMatrix(4);
 		//i.printMatrix(a);
+		MyLinkedList m = new MyLinkedList();
 		int []b = new int[]{1,2,3,4,9,4,7,8};
 		for(int j:b){
-			i.createList(j);
+			m.createList(j);
 		}
-		i.printLinkedList(i.root);
-		MyLinkedList head = i.mergeList(i.root);
+		m.printLinkedList(m.root);
+		LinkedList head = i.mergeList(i.root);
 		System.out.println();
 		i.printLinkedList(head);
-		System.out.println();
-		int []c =new int []{1,2,4,3,8,9};
-		i.printPairs(c, 10);
-		i.findFirstAndSecondLargest(c);
+//		System.out.println();
+//		int []c =new int []{1,2,4,3,8,9};
+//		i.printPairs(c, 10);
+//		i.findFirstAndSecondLargest(c);
 		
 		
 		int d[] = new int[]{2,4,1,5,7,4,9};
@@ -110,13 +115,12 @@ public class InterviewQuestions {
 	 * construct a final linked list. For e.g. 1>2>3>5>9>4>7>8 should
 	 * give 1>2>3>4>5>7>8>9.
 	 */
-	MyLinkedList root;
-	MyLinkedList mergeList(MyLinkedList root){
+	LinkedList mergeList(LinkedList root){
 		if(root == null)
 			return null;
-		MyLinkedList fPointer= root;
-		MyLinkedList sPointer = root;
-		MyLinkedList current = root;
+		LinkedList fPointer= root;
+		LinkedList sPointer = root;
+		LinkedList current = root;
 		while(current!=null){
 			if(current.next.data<current.data){
 				sPointer = current.next;
@@ -127,7 +131,7 @@ public class InterviewQuestions {
 		if(sPointer == null)
 			return fPointer;
 		current.next = null;
-		MyLinkedList head = root;
+		LinkedList head = root;
 		if(fPointer.data<=sPointer.data){
 			head = fPointer;
 			fPointer = fPointer.next;
@@ -157,32 +161,7 @@ public class InterviewQuestions {
 		return head;
 	}
 	
-	void printLinkedList(MyLinkedList root){
-		MyLinkedList current = root;
-		while(current!=null){
-			System.out.print(current.data + ">");
-			current = current.next;
-		}
-	}
-	void createList(int data){
-		if(root == null){
-			root = createNode(data);
-			return;
-		}
-		MyLinkedList current = root;
-		while(current.next!=null){
-			current = current.next;
-		}
-		current.next  = createNode(data);
 
-	}
-
-	private MyLinkedList createNode(int data) {
-		MyLinkedList node = new MyLinkedList();
-		node.data = data;
-		node.next = null;
-		return node;
-	}
 	
 	// Informatica Interview question
 	/* Q1. Give an array, find all pairs which sum up to 10.
@@ -226,10 +205,7 @@ public class InterviewQuestions {
 
 }
 
- class MyLinkedList{
-	int data;
-	MyLinkedList next;
-}
+
  
  class BTNode{
 		int data;

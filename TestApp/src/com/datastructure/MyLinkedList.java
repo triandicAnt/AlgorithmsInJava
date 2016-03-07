@@ -44,14 +44,25 @@ public class MyLinkedList{
 	 public static void main(String[] args) {
 		MyLinkedList m = new MyLinkedList();
 		int []a = new int [] {1,2,3,4,5,6,7,8,9};
+
 		for(int i:a){
 		 m.createList(i);
 		}
-		m.root = m.reverseEveryK(m.root, 3);
+		m.printLinkedList(m.root);
+
+		//m.root = m.reverseEveryK(m.root, 3);
+		System.out.println();
+		m.root = m.reverseList(m.root);
 		m.printLinkedList(m.root);
 	}
 	 /**
 	  * reverse every k elements in a linked list
+	  */
+	 /**
+	  * 
+	  * @param root
+	  * @param k
+	  * @return
 	  */
 	 LinkedList reverseEveryK(LinkedList root, int k){
 		 LinkedList temp = root;
@@ -71,5 +82,15 @@ public class MyLinkedList{
 		 root = prev;
 		 return root;
 	 }
+	 
 	
+	LinkedList reverseList(LinkedList head){
+		if(head == null || head.next == null)
+			return head;
+		LinkedList rest = head.next;
+		head.next = null;
+		LinkedList reverseLst = reverseList(rest);
+		rest.next = head;
+		return reverseLst;
+	}
 }

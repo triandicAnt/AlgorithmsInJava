@@ -3,11 +3,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-class BTNode{
-	int data;
-	BTNode left;
-	BTNode right;
-}
+
 @SuppressWarnings("all")
 public class BinaryTree {
 
@@ -15,7 +11,7 @@ public class BinaryTree {
 	 * @param args
 	 */
 
-	private BTNode root;
+	protected BTNode root;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -58,7 +54,7 @@ public class BinaryTree {
 	 * @return
 	 */
 	
-	private BTNode createNode(int data){
+	protected  BTNode createNode(int data){
 		BTNode newNode = new BTNode();
 		newNode.data = data;
 		newNode.left = newNode.right = null;
@@ -70,7 +66,7 @@ public class BinaryTree {
 	 * 
 	 * @param root
 	 */
-	private void inOrder(BTNode root){
+	protected void inOrder(BTNode root){
 		if(root==null)
 			return;
 		inOrder(root.left);
@@ -86,7 +82,7 @@ public class BinaryTree {
 	 * @param root
 	 * @return
 	 */
-	private int findSum(BTNode root){
+	protected int findSum(BTNode root){
 		if(root == null){
 			return 0;
 		}
@@ -102,7 +98,7 @@ public class BinaryTree {
 	 * @param num
 	 * @return
 	 */
-	private int countTree(int num){
+	protected int countTree(int num){
 		if(num==0 || num ==1)
 			return 1;
 		int sum = 0;

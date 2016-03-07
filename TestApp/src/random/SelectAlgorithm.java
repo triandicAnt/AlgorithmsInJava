@@ -15,7 +15,6 @@ public class SelectAlgorithm {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		SelectAlgorithm s = new SelectAlgorithm();
 		int []a = new int [] {3,4,2,1,6,9,8,11};
 		System.out.println(s.selectIthSmallest(a, 0, a.length-1, 5));

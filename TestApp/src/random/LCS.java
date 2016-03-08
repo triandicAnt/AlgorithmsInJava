@@ -3,8 +3,6 @@
  */
 package random;
 
-import java.util.Arrays;
-
 /**
  * @author Sudhansu
  *
@@ -63,18 +61,10 @@ public class LCS {
 		int [][] a = new int[l1+1][l2+1];
 		for (int i = 1; i <= X.length(); i++) {
 			for (int j = 1; j <= Y.length(); j++) {
-				if(X.charAt(i-1)==Y.charAt(j-1)){
+				if(X.charAt(i-1)==Y.charAt(j-1))
 					a[i][j] = a[i-1][j-1]+1;
-				}
-				else{
-					//a[i][j] = Math.max(a[i-1][j],a[i][j-1]);
-					if(a[i-1][j]>a[i][j-1]){
-						a[i][j] = a[i-1][j];
-					}
-					else{
-						a[i][j] = a[i][j-1];
-					}
-				}
+				else
+					a[i][j] = Math.max(a[i-1][j],a[i][j-1]);
 			}
 		}
 		return a[l1][l2];

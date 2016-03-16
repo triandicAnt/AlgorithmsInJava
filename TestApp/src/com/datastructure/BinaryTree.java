@@ -1,4 +1,5 @@
 package com.datastructure;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -19,8 +20,8 @@ public class BinaryTree {
 		BinaryTree bt = new BinaryTree();
 		
 		for(int i : a){
-			//add(i);
-			bt.addRecursive(i);
+			bt.add(i);
+			//bt.addRecursive(i);
 		}
 		//System.out.println(root.data);
 		bt.inOrder(bt.root);
@@ -37,15 +38,17 @@ public class BinaryTree {
 //		System.out.println(bt.findLCSBST(bt.root, 5, 7).data);
 //		System.out.println(bt.findLCABT(bt.root, 2, 7).data);
 		
-		int [] in_order = new int[]{4,2,5,1,6,3};
-		int [] pre_order = new int []{1,2,4,5,3,6};
-		BTNode root = bt.buildTree(pre_order, in_order, 0, in_order.length-1);
+//		int [] in_order = new int[]{4,2,5,1,6,3};
+//		int [] pre_order = new int []{1,2,4,5,3,6};
+//		BTNode root = bt.buildTree(pre_order, in_order, 0, in_order.length-1);
 		//System.out.println("printing the tree");
 		//bt.inOrder(root);
 //		System.out.println(bt.searchNode(in_order, 3));
 //		bt.printAllAncestors(root, 6);
 //		bt.printZigZagFormat(root);
-		System.out.println(bt.findLevelWithMaxSum(root));
+//		System.out.println(bt.findLevelWithMaxSum(root));
+		int val = bt.findLCSUsingParent(bt.root, 4, 5);
+		System.out.println(val);
 	}
 	
 	/**
@@ -57,7 +60,7 @@ public class BinaryTree {
 	protected  BTNode createNode(int data){
 		BTNode newNode = new BTNode();
 		newNode.data = data;
-		newNode.left = newNode.right = null;
+		newNode.left = newNode.right = newNode.parent = null;
 		return newNode;
 	}
 	
@@ -71,6 +74,10 @@ public class BinaryTree {
 			return;
 		inOrder(root.left);
 		System.out.print(root.data + " ");
+//		if(root.parent!=null)
+//			System.out.println(root.parent.data);
+//		else
+//			System.out.println();
 		inOrder(root.right);
 	}
 	
@@ -225,9 +232,11 @@ public class BinaryTree {
 			}
 			if(value<=parent.data){
 				parent.left = createNode(value);
+				parent.left.parent = parent;
 			}
 			else{
 				parent.right = createNode(value);
+				parent.right.parent = parent;
 			}
 		}
 		
@@ -286,7 +295,16 @@ public class BinaryTree {
 		else
 			return nodeExist(root.right, n);
 	}
-	
+	private BTNode findNode(BTNode root, int n){
+		if(root==null)
+			return null;
+		else if(root.data == n)
+			return root;
+		else if(root.data>n)
+			return findNode(root.left, n);
+		else
+			return findNode(root.right, n);
+	}
 	// find LCA in a Binary Tree
 	/**
 	 * 
@@ -446,6 +464,26 @@ public class BinaryTree {
 			}
 		}
 		return maxLevel;
+	}
+	public int findLCSUsingParent(BTNode root, int n1, int n2){
+		if(root == null)
+			return Integer.MIN_VALUE;
+		HashMap<Integer, Boolean> map = new HashMap<Integer, Boolean>();
+		BTNode node1 = findNode(root, n1);
+		BTNode node2 = findNode(root, n2);
+		System.out.println("\n"+node1.parent.data);
+
+		while(node1!=null){
+			map.put(node1.data, true);
+			node1 = node1.parent;
+		}
+		System.out.println(map.toString());
+		while(node2!=null){
+			if(map.get(node2.data))
+				return node2.data;
+			node2 = node2.parent;
+		}
+		return Integer.MIN_VALUE;
 	}
 }
 

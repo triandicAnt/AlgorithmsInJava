@@ -13,7 +13,7 @@ import java.util.Map.Entry;
  * @param <T>
  *
  */
-public class AdjacencyList<E,T> {
+public class AdjacencyList<T,E> {
 
 	/**
 	 * @param args
@@ -34,6 +34,15 @@ public class AdjacencyList<E,T> {
 		a.addToList('u', 't');
 		a.addToList('u', 'y');
 		a.addToList('v', 'r');
+		a.addToList('w', 's');
+		a.addToList('w', 't');
+		a.addToList('w', 'x');
+		a.addToList('x', 't');
+		a.addToList('x', 'w');
+		a.addToList('x', 'y');
+		a.addToList('y', 'u');
+		a.addToList('y', 'x');
+
 		a.printAdjList();
 
 	}
@@ -45,11 +54,13 @@ public class AdjacencyList<E,T> {
 	void addToList(T source, E dest){
 		if(adj.containsKey(source)){
 			LinkedList<E> list = adj.get(source);
-			list.add(dest);
+			if(dest!=null)
+				list.add(dest);
 		}
 		else{
 			LinkedList<E> list = new LinkedList<E>();
-			list.add(dest);
+			if(dest!=null)
+				list.add(dest);
 			adj.put(source, list);
 		}
 	}
@@ -74,9 +85,9 @@ public class AdjacencyList<E,T> {
 			System.out.println("List is empty!");
 			return;
 		}
-		for (Entry<T, LinkedList<E>> e : adj.entrySet()) {
+		for (Entry<T, LinkedList<E>> e : this.adj.entrySet()) {
 			LinkedList<E> list = e.getValue();
-			System.out.print(e.getKey() + " :");
+			System.out.print(e.getKey() + ": ");
 			for (int i = 0; i < list.size(); i++) {
 				System.out.print(list.get(i) + " ");		
 			}

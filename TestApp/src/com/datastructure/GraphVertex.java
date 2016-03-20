@@ -3,8 +3,6 @@
  */
 package com.datastructure;
 
-import java.util.ArrayList;
-
 /**
  * @author Sudhansu
  *
@@ -16,6 +14,7 @@ public class GraphVertex<T,E> {
 	T name;
 	boolean visited;
 	Color color;
+	
 	
 
 @Override
@@ -44,5 +43,47 @@ public boolean equals(Object obj) {
 			return "";
 		else
 			return this.name.toString();
+	}
+
+	/**
+	 * @return the name
+	 */
+	public T getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(T name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the visited
+	 */
+	public boolean isVisited() {
+		return visited;
+	}
+
+	/**
+	 * @param visited the visited to set
+	 */
+	public void setVisited(boolean visited) {
+		this.visited = visited;
+	}
+
+	/**
+	 * @return the color
+	 */
+	public Color getColor() {
+		return color;
+	}
+
+	/**
+	 * @param color the color to set
+	 */
+	public void setColor(Color color) {
+		this.color = color;
 	}
 }

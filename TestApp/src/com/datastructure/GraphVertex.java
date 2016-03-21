@@ -14,7 +14,7 @@ public class GraphVertex<T,E> {
 	T name;
 	boolean visited;
 	Color color;
-	
+	GraphVertex<T, E> parent;
 	
 
 @Override
@@ -85,5 +85,19 @@ public boolean equals(Object obj) {
 	 */
 	public void setColor(Color color) {
 		this.color = color;
+	}
+
+	/**
+	 * @return the parent
+	 */
+	public GraphVertex<T, E> getParent() {
+		return parent;
+	}
+
+	/**
+	 * @param parent the parent to set
+	 */
+	public void setParent(GraphVertex<T, E> parent) {
+		this.parent = parent;
 	}
 }

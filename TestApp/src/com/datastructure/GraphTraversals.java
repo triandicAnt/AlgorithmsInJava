@@ -26,6 +26,7 @@ public class GraphTraversals {
 //	for DFS
 	Map<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> adj = new HashMap<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>>();
 	Stack<GraphVertex<Object,Object>> s = new Stack<>();
+	Boolean cycle = false;
 	int noOfComponentsInGraph;
 	// for BFS
 	Queue<GraphVertex<Object, Object>> q = new LinkedList<>();
@@ -39,6 +40,7 @@ public class GraphTraversals {
 		System.out.println("DFS traversal: ");
 		g.dfs();
 		System.out.println("No. of components: "+ g.noOfComponentsInGraph);
+		System.out.println("Graph has cycle ?" + g.cycle);
 		g.setDefault();
 		System.out.println("************************************************");
 		GraphTraversals gt = new GraphTraversals();
@@ -218,10 +220,13 @@ public class GraphTraversals {
 		 for(GraphVertex<Object,Object> n: neighbors)
 		 {
 			 if(n.isVisited()==false && n.getColor()==Color.WHITE){
+				n.setParent(key);
 				 return n;
 			 }
 			 else{
-//				 
+				 if(key.getParent()!=null && !key.getParent().equals(n)){
+					 cycle = true;
+				 }
 				 // check whether there is a cycle in the graph
 				 // if parent of key is not 'n' then there is a cycle
 			 }

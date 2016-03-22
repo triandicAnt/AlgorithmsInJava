@@ -30,7 +30,8 @@ public class GraphTraversals {
 	int noOfComponentsInGraph;
 	// for BFS
 	Queue<GraphVertex<Object, Object>> q = new LinkedList<>();
-	
+	LinkedList<GraphVertex<Object, Object>> topologicalSorted = new LinkedList<>();
+
 	public static  void main(String[] args) {
 		// TODO Auto-generated method stub
 		GraphTraversals g = new GraphTraversals();
@@ -40,17 +41,34 @@ public class GraphTraversals {
 		System.out.println("DFS traversal: ");
 		g.dfs();
 		System.out.println("No. of components: "+ g.noOfComponentsInGraph);
-		System.out.println("Graph has cycle ?" + g.cycle);
 		g.setDefault();
 		System.out.println("************************************************");
-		GraphTraversals gt = new GraphTraversals();
+		g.recursiveDFS();
+		System.out.println("Graph has cycle ? " + g.cycle);
+		/*GraphTraversals gt = new GraphTraversals();
 		gt.addToBfsList();
 		System.out.println("Adjacency List -------------------------------");
 		gt.printGraph();
 		// call bfs
 		System.out.println("BFS traversal: ");
 		gt.bfs();
-		gt.setDefault();
+		gt.setDefault();*/
+		GraphTraversals got = new GraphTraversals();
+		got.createAGraph();
+		got.printGraph();
+		got.recursiveDFS();
+		System.out.println("Graph has cycle ? " + got.cycle);
+		got.setDefault();
+
+	}
+	void createAGraph(){
+		addToList(createAVertex('A'),createAVertex('B'));
+//		addToList(createAVertex('A'),createAVertex('C'));
+		addToList(createAVertex('B'),createAVertex('A'));
+//		addToList(createAVertex('B'),createAVertex('C'));
+//		addToList(createAVertex('C'),createAVertex('A'));
+//		addToList(createAVertex('C'),createAVertex('D'));
+//		addToList(createAVertex('D'),createAVertex('C'));
 
 	}
 	/**
@@ -223,13 +241,13 @@ public class GraphTraversals {
 				n.setParent(key);
 				 return n;
 			 }
-			 else{
-				 if(key.getParent()!=null && !key.getParent().equals(n)){
-					 cycle = true;
-				 }
+//			 else{
+//				 if(key.getParent()!=null && !key.getParent().equals(n)){
+//					 cycle = true;
+//				 }
 				 // check whether there is a cycle in the graph
 				 // if parent of key is not 'n' then there is a cycle
-			 }
+//			 }
 				 
 		 }
 		 return null;
@@ -262,7 +280,7 @@ public class GraphTraversals {
 			LinkedList<GraphVertex<Object,Object>> list = e.getValue();
 			for (GraphVertex<Object,Object> graphVertex : list) {
 				graphVertex.setVisited(false);
-				 e.getKey().setColor(Color.WHITE);
+				graphVertex.setColor(Color.WHITE);
 			}
 		}
 	}
@@ -347,5 +365,43 @@ public class GraphTraversals {
 			}
 			
 		 }
+	}
+	
+	void recursiveDFS(){
+		System.out.println("The DFS of graph is: ");
+		for (Entry<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> e : adj.entrySet()) {
+			
+			if(e.getKey().getColor()==Color.WHITE && e.getKey().isVisited() == false){
+				System.out.print(e.getKey().name + " ");
+				dfsRecursuveVisit(e.getKey());
+				System.out.println();
+				noOfComponentsInGraph ++;
+			}
+		}
+	}
+
+	void printTopologicalSorted(){
+		System.out.println("Topological Sorted is: ");
+		for (GraphVertex<Object, Object> g : topologicalSorted) {
+			System.out.print(g.getName() + " ");
+		}
+	}
+	void dfsRecursuveVisit(GraphVertex<Object, Object> key){
+		updateColor(key, Color.GREY);
+		updateVisited(key, true);
+		LinkedList<GraphVertex<Object, Object>> neighbors = this.adj.get(key);
+		for(GraphVertex<Object, Object> n : neighbors){
+			if(n.getColor()==Color.WHITE && n.isVisited() == false){
+				System.out.print(n.name + " ");
+				n.setParent(key);
+				dfsRecursuveVisit(n);
+			}
+			else if(key.getParent() != null && !key.getParent().equals(n)){
+				//System.out.println("Cycle Detected");
+				this.cycle = true;
+			}
+		}
+		updateColor(key, Color.BLACK);
+		topologicalSorted.addFirst(key);
 	}
 }

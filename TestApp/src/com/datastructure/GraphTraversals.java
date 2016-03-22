@@ -26,6 +26,7 @@ public class GraphTraversals {
 //	for DFS
 	Map<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> adj = new HashMap<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>>();
 	Stack<GraphVertex<Object,Object>> s = new Stack<>();
+	Stack<Object> topoS = new Stack<>();
 	Boolean cycle = false;
 	int noOfComponentsInGraph;
 	// for BFS
@@ -37,11 +38,11 @@ public class GraphTraversals {
 		GraphTraversals g = new GraphTraversals();
 		g.createAdjList();
 		System.out.println("Adjacency List -------------------------------");
-		g.printGraph();
+		g.printGraph(g.adj);
 		System.out.println("DFS traversal: ");
 		g.dfs();
 		System.out.println("No. of components: "+ g.noOfComponentsInGraph);
-		g.setDefault();
+		g.setDefault(g.adj);
 		System.out.println("************************************************");
 		g.recursiveDFS();
 		System.out.println("Graph has cycle ? " + g.cycle);
@@ -55,10 +56,10 @@ public class GraphTraversals {
 		gt.setDefault();*/
 		GraphTraversals got = new GraphTraversals();
 		got.createAGraph();
-		got.printGraph();
+		got.printGraph(g.adj);
 		got.recursiveDFS();
 		System.out.println("Graph has cycle ? " + got.cycle);
-		got.setDefault();
+		got.setDefault(got.adj);
 
 	}
 	void createAGraph(){
@@ -128,12 +129,12 @@ public class GraphTraversals {
 	/**
 	 * print graph
 	 */
-	 void printGraph(){
-		if(adj.isEmpty()){
+	 void printGraph(Map<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> map){
+		if(map.isEmpty()){
 			System.out.println("List is empty, Graph cannot be created!");
 			return;
 		}
-		for (Entry<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> e : adj.entrySet()) {
+		for (Entry<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> e : map.entrySet()) {
 			LinkedList<GraphVertex<Object,Object>> list = e.getValue();
 			
 			System.out.print(e.getKey().toString() + ": ");
@@ -169,21 +170,21 @@ public class GraphTraversals {
  */
 	private void dfsVisit(GraphVertex<Object,Object> key) {
 		 System.out.print(key.getName() + " ");
-		 updateColor(key, Color.GREY);
-		 updateVisited(key, true);
+		 updateColor(this.adj,key, Color.GREY);
+		 updateVisited(this.adj,key, true);
 		 s.push(key);
 		 while (!s.isEmpty()) {
 			 GraphVertex<Object,Object> p = s.peek();
 			 GraphVertex<Object,Object> unvisited = findUnvisitedVertex(p);
 			 if(unvisited==null){
 				 GraphVertex<Object,Object> tbr = s.peek();
-				 updateColor(tbr, Color.BLACK);
+				 updateColor(this.adj,tbr, Color.BLACK);
 				 s.pop();
 			 }
 			 else{
 				 System.out.print(unvisited.getName() + " ");
-				 updateColor(unvisited, Color.GREY);
-				 updateVisited(unvisited, true);
+				 updateColor(this.adj,unvisited, Color.GREY);
+				 updateVisited(this.adj,unvisited, true);
 				 s.push(unvisited);
 			 }
 		}
@@ -193,9 +194,9 @@ public class GraphTraversals {
 	 * @param key
 	 * @param color
 	 */
-	void updateColor(GraphVertex<Object,Object> key, Color color){
+	void updateColor(Map<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> map, GraphVertex<Object,Object> key, Color color){
 				
-		for (Entry<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> e : adj.entrySet()) {
+		for (Entry<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> e : map.entrySet()) {
 			 if(e.getKey().equals(key))
 				 e.getKey().setColor(color);
 			LinkedList<GraphVertex<Object,Object>> list = e.getValue();
@@ -211,9 +212,9 @@ public class GraphTraversals {
 	 * @param key
 	 * @param visited
 	 */
-	void updateVisited(GraphVertex<Object,Object> key, Boolean visited){
+	void updateVisited(Map<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> map, GraphVertex<Object,Object> key, Boolean visited){
 		
-		for (Entry<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> e : adj.entrySet()) {
+		for (Entry<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> e : map.entrySet()) {
 			 if(e.getKey().equals(key))
 				 e.getKey().setVisited(visited);
 			LinkedList<GraphVertex<Object,Object>> list = e.getValue();
@@ -273,8 +274,9 @@ public class GraphTraversals {
 	/**
 	 * set the color and isVisited to default values
 	 */
-	void setDefault(){
-		for (Entry<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> e : adj.entrySet()) {
+	void setDefault(Map<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> map){
+		System.out.println(map.toString());
+		for (Entry<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> e : map.entrySet()) {
 				 e.getKey().setVisited(false);
 				 e.getKey().setColor(Color.WHITE);
 			LinkedList<GraphVertex<Object,Object>> list = e.getValue();
@@ -339,15 +341,15 @@ public class GraphTraversals {
 	 */
 	void bfsVisit(GraphVertex<Object, Object> key){
 		 System.out.print(key.getName() + " ");
-		 updateColor(key, Color.GREY);
-		 updateVisited(key, true);
+		 updateColor(this.adj,key, Color.GREY);
+		 updateVisited(this.adj,key, true);
 		 q.add(key);
 		 
 		 while (!q.isEmpty()) {
 			 GraphVertex<Object,Object> p = q.peek();
 			 LinkedList<GraphVertex<Object, Object>> neighbors = adj.get(p);
 			 if(neighbors==null){
-				 updateColor(p, Color.BLACK);
+				 updateColor(this.adj,p, Color.BLACK);
 				 q.poll();			 
 			 }
 			
@@ -355,12 +357,12 @@ public class GraphTraversals {
 				 for (GraphVertex<Object, Object> n : neighbors) {
 					if(n.isVisited()==false && n.getColor()==Color.WHITE){
 						 System.out.print(n.getName() + " ");
-						updateColor(n, Color.GREY);
-						updateVisited(n, true);
+						updateColor(this.adj,n, Color.GREY);
+						updateVisited(this.adj,n, true);
 						q.add(n);
 					}
 				 }
-				 updateColor(p, Color.BLACK);
+				 updateColor(this.adj,p, Color.BLACK);
 				 q.poll();			 
 			}
 			
@@ -387,8 +389,8 @@ public class GraphTraversals {
 		}
 	}
 	void dfsRecursuveVisit(GraphVertex<Object, Object> key){
-		updateColor(key, Color.GREY);
-		updateVisited(key, true);
+		updateColor(this.adj,key, Color.GREY);
+		updateVisited(this.adj,key, true);
 		LinkedList<GraphVertex<Object, Object>> neighbors = this.adj.get(key);
 		for(GraphVertex<Object, Object> n : neighbors){
 			if(n.getColor()==Color.WHITE && n.isVisited() == false){
@@ -401,7 +403,17 @@ public class GraphTraversals {
 				this.cycle = true;
 			}
 		}
-		updateColor(key, Color.BLACK);
+		updateColor(this.adj ,key, Color.BLACK);
 		topologicalSorted.addFirst(key);
+		topoS.push(key.name);
+	}
+	
+	void printTopoSort(Stack<Object> s){
+		while(!s.isEmpty())
+		{
+			Object v = s.peek();
+			System.out.print(v + " ");
+			s.pop();
+		}
 	}
 }

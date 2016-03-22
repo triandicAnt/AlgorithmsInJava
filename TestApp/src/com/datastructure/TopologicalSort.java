@@ -17,9 +17,11 @@ public class TopologicalSort {
 		// TODO Auto-generated method stub
 		TopologicalSort ts = new TopologicalSort();
 		ts.createGraph();
-		ts.got.printGraph();
+		ts.got.printGraph(ts.got.adj);
 		ts.got.recursiveDFS();
 		ts.got.printTopologicalSorted();
+		System.out.println();
+		ts.got.printTopoSort(ts.got.topoS);
 
 	}
 	void createGraph(){

@@ -15,6 +15,15 @@ public class GraphVertex<T,E> {
 	boolean visited;
 	Color color;
 	GraphVertex<T, E> parent;
+	public GraphVertex()
+	{
+		
+	}
+	 public GraphVertex(GraphVertex<T, E> another) {
+		    this.name = another.name; 
+		    this.color = another.color;
+		    this.parent = another.parent;
+		  }
 	
 
 @Override

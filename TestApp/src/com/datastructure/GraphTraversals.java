@@ -200,6 +200,8 @@ public class GraphTraversals {
 			 if(e.getKey().equals(key))
 				 e.getKey().setColor(color);
 			LinkedList<GraphVertex<Object,Object>> list = e.getValue();
+			if(list == null)
+				return;
 			for (GraphVertex<Object,Object> graphVertex : list) {
 				if(graphVertex.equals(key))
 					graphVertex.setColor(color);
@@ -218,6 +220,8 @@ public class GraphTraversals {
 			 if(e.getKey().equals(key))
 				 e.getKey().setVisited(visited);
 			LinkedList<GraphVertex<Object,Object>> list = e.getValue();
+			if(list == null)
+				return;
 			for (GraphVertex<Object,Object> graphVertex : list) {
 				if(graphVertex.equals(key))
 					 	graphVertex.setVisited(visited);

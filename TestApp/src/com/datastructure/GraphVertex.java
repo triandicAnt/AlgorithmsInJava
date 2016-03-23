@@ -17,12 +17,13 @@ public class GraphVertex<T,E> {
 	GraphVertex<T, E> parent;
 	public GraphVertex()
 	{
-		
+		this.setColor(Color.WHITE);
+		this.setVisited(false);
 	}
-	 public GraphVertex(GraphVertex<T, E> another) {
-		    this.name = another.name; 
-		    this.color = another.color;
-		    this.parent = another.parent;
+	 public GraphVertex(T name) {
+		    this.name = name; 
+		    this.setColor(Color.WHITE);
+			this.setVisited(false);
 		  }
 	
 

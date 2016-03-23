@@ -3,7 +3,6 @@
  */
 package com.datastructure;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -39,16 +38,15 @@ public class StronglyConnectedComponents {
 		scm.got.printGraph(scm.got.adj);
 		scm.got.recursiveDFS();
 		System.out.println();
-		System.out.println(Arrays.toString(scm.got.topoS.toArray()));
 		scm.reverseAdjacencyList(scm.got.adj);
 		System.out.println("Reversed list");
 		scm.got.printGraph(scm.revAdj);
-		System.out.println("***");
-		//System.out.println(Arrays.toString(scm.got.topoS.toArray()));
+		System.out.println("***************************************************");
 
-		//System.out.println("--------------------");
-		//scm.createSCCList(scm.revAdj);
-		
+		System.out.println("The Strongly connected components are : ");
+		scm.createSCCList(scm.revAdj);
+		System.out.println("****************************************************");
+		System.out.println(scm.sccList.toString());
 		/*System.out.println("Reversed list");
 		scm.reverseAdjacencyList(scm.got.adj);
 		scm.got.printGraph(scm.revAdj);
@@ -76,31 +74,23 @@ public class StronglyConnectedComponents {
 
 	void reverseAdjacencyList(Map<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> map){
 		for (Entry<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> e : map.entrySet()) {
-			GraphVertex<Object, Object> key = e.getKey(); // old key
-			LinkedList<GraphVertex<Object, Object>> values = e.getValue(); // old values
+			GraphVertex<Object, Object> key = e.getKey(); // old key			
+			for(GraphVertex<Object, Object> n : e.getValue()){ // iterate over values
 			
-			for(GraphVertex<Object, Object> n : values){ // iterate over values
-				
 				GraphVertex<Object, Object> newKey = findVertexForKey(this.revAdj, n);
-//				if(newKey == null)
-				//
-				LinkedList<GraphVertex<Object, Object>> neigh = map.get(newKey);
-//				if((int)newKey.getName()==5)
-//					System.out.println(neigh.toString());
-
+				if(newKey == null)
+					newKey = new GraphVertex<>(n.getName());
+				LinkedList<GraphVertex<Object, Object>> neigh = this.revAdj.get(newKey);
 				if(neigh==null){
 					neigh = new LinkedList<>();
 				}
-				neigh.add(new GraphVertex<>(key));
-				if(newKey==null)
-					this.revAdj.put(new GraphVertex<>(n), neigh);		
-				else
+				neigh.add(new GraphVertex<>(key.getName()));
 					this.revAdj.put(newKey, neigh);
 			}		
 		}
 		for(GraphVertex<Object, Object> o : map.keySet()){
 			if(findVertexForKey(this.revAdj,o.getName())==null){
-				this.revAdj.put(new GraphVertex<>(o), null);
+				this.revAdj.put(new GraphVertex<>(o.getName()), null);
 			}
 		}
 	}
@@ -113,7 +103,6 @@ public class StronglyConnectedComponents {
 		return null;
 	}
 	void setDefault(Map<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> map){
-		System.out.println("====="+map.toString());
 		for (Entry<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> e : map.entrySet()) {
 				 e.getKey().setVisited(false);
 				 e.getKey().setColor(Color.WHITE);
@@ -125,43 +114,38 @@ public class StronglyConnectedComponents {
 		}
 	}
 	void createSCCList(Map<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> map){
-		System.out.println("*** "+ this.got.topoS.peek());
-		setDefault(this.revAdj);
-		System.out.println(this.revAdj.toString());
-
-		Object key = this.got.topoS.peek();
-		GraphVertex<Object, Object> vertex = findVertexForKey(map, key);
-		System.out.println("Here" + vertex.getColor() + vertex.isVisited());
+		
 
 		while(!this.got.topoS.isEmpty()){
-			System.out.println("Here" + vertex.getColor() + vertex.isVisited());
-			
+			Object key = this.got.topoS.peek();
+			GraphVertex<Object, Object> vertex = findVertexForKey(map, key);
+
 			if(vertex.getColor()==Color.WHITE && vertex.isVisited() == false){
 				LinkedList<GraphVertex<Object, Object>> sList = new LinkedList<>();
 				sList.add(vertex);
 				this.got.topoS.pop();
 				dfsRecursuveVisit(vertex, sList);
-				System.out.println("---"+ sList.toString());
 				this.sccList.add(sList);
 			}
 		}
 	}
-
+	
 	void dfsRecursuveVisit(GraphVertex<Object, Object> key, LinkedList<GraphVertex<Object, Object>> sList){
 		
-		System.out.println("Here");
 		this.got.updateColor(this.revAdj,key, Color.GREY);
-		this.got.updateVisited(this.revAdj,key, true);
+		this.got.updateVisited(this.revAdj, key, true);
+
 		LinkedList<GraphVertex<Object, Object>> neighbors = this.revAdj.get(key);
-		System.out.println("%%%"+neighbors.toString());
-//		for(GraphVertex<Object, Object> n : neighbors){
-//			if(n.getColor()==Color.WHITE && n.isVisited() == false){
-//				sList.add(n);
-//				this.got.topoS.pop();
-//				dfsRecursuveVisit(n, sList);
-//			}
-//			
-//		}
+		if(neighbors == null)
+			return;
+		for(GraphVertex<Object, Object> n : neighbors){
+			if(n.getColor()==Color.WHITE && n.isVisited() == false){
+				sList.add(n);
+				this.got.topoS.pop();
+				dfsRecursuveVisit(n, sList);
+			}
+			
+		}
 		this.got.updateColor(this.revAdj,key, Color.BLACK);
 	}
 	

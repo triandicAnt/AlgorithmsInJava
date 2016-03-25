@@ -15,7 +15,7 @@ public class UtopianTree {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		UtopianTree u = new UtopianTree();
-		u.findHeight(4);
+		u.findHeight(15);
 
 	}
 	void findHeight(int cycle){

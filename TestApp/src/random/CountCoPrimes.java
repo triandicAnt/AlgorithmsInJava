@@ -21,6 +21,14 @@ public class CountCoPrimes {
 		System.out.println(Arrays.toString(a));
 		int [] b = c.populateCoPrimes(a);
 		System.out.println(Arrays.toString(b));
+		int n = 32000;
+		int x = 0;
+		while(n!=0){
+			n= n>>1;
+			x++;
+		}
+		System.out.println(x);
+		System.out.println(Math.log(8));
 
 	}
 	/**

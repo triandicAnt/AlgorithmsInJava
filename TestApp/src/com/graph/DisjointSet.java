@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.datastructure;
+package com.graph;
 
 import java.util.HashMap;
 

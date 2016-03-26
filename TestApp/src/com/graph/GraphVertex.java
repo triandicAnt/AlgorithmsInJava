@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.datastructure;
+package com.graph;
 
 /**
  * @author Sudhansu

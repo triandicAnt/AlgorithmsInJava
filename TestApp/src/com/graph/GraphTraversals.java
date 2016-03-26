@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.datastructure;
+package com.graph;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Queue;
 import java.util.Stack;
+
 
 /**
  * @author Sudhansu

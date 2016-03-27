@@ -26,6 +26,10 @@ public class ArrayProblems {
 	/**
 	 * Find three numbers in an arrays whose sum is zero.
 	 */
+	/**
+	 * 
+	 * @param n
+	 */
 	void findNumbers(int [] n){
 		Arrays.sort(n);
 		HashSet<Integer> hs = new HashSet<>();
@@ -51,7 +55,10 @@ public class ArrayProblems {
 		}
 	}
 	
-	
+	/**
+	 * 
+	 * @param n
+	 */
 	void findTriplerts(int [] n){
 		HashSet<Integer> hs = new HashSet<>();
 		for (int i = 0; i < n.length; i++) {
@@ -66,7 +73,11 @@ public class ArrayProblems {
 			hs.add(n[i]);
 		}
 	}
-	
+	/**
+	 * 
+	 * @param n
+	 * @param s
+	 */
 	void findTripletWithSumS(int [] n, int s){
 		Arrays.sort(n);
 		int j,k=0;

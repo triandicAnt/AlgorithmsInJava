@@ -3,6 +3,8 @@
  */
 package random;
 
+import java.util.HashSet;
+
 /**
  * @author Sudhansu
  *
@@ -17,9 +19,8 @@ public class UtopianTree {
 		UtopianTree u = new UtopianTree();
 		u.findHeight(15);
 		System.out.println("avbdsfsf".substring(0,0));
-		String s = "abc";
+		String s = "aac";
 		u.permute(s);
-
 	}
 	void findHeight(int cycle){
 		int height = 1;
@@ -46,10 +47,13 @@ public class UtopianTree {
 	 */
 	void permute(String str){
 		permute("", str);
+		System.out.println(mset.toString());
 	}
+	HashSet<String> mset = new HashSet<>();
 	void permute(String pre, String str){
-		if(str.length()==1)
-			System.out.println(pre+str);
+		if(str.length()==1){
+			mset.add(pre+str);			
+		}
 		else{
 			for (int i = 0; i < str.length(); i++) {
 				permute(pre+str.charAt(i), str.substring(0,i)+str.substring(i+1,str.length()));

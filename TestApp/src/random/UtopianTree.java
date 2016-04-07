@@ -16,6 +16,9 @@ public class UtopianTree {
 		// TODO Auto-generated method stub
 		UtopianTree u = new UtopianTree();
 		u.findHeight(15);
+		System.out.println("avbdsfsf".substring(0,0));
+		String s = "abc";
+		u.permute(s);
 
 	}
 	void findHeight(int cycle){
@@ -36,5 +39,21 @@ public class UtopianTree {
 		}
 		System.out.println(height);
 
+	}
+	/**
+	 * String permutation
+	 * @param str
+	 */
+	void permute(String str){
+		permute("", str);
+	}
+	void permute(String pre, String str){
+		if(str.length()==1)
+			System.out.println(pre+str);
+		else{
+			for (int i = 0; i < str.length(); i++) {
+				permute(pre+str.charAt(i), str.substring(0,i)+str.substring(i+1,str.length()));
+			}
+		}
 	}
 }

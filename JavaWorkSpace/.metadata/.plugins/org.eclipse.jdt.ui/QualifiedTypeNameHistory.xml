@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="opennlp.tools.sentdetect.SentenceModel"/>
+<fullyQualifiedTypeName name="opennlp.tools.sentdetect.SentenceDetectorME"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="opennlp.tools.tokenize.TokenizerModel"/>
+<fullyQualifiedTypeName name="opennlp.tools.tokenize.Tokenizer"/>
+<fullyQualifiedTypeName name="opennlp.tools.tokenize.TokenizerME"/>
+<fullyQualifiedTypeName name="opennlp.tools.namefind.TokenNameFinder"/>
+<fullyQualifiedTypeName name="opennlp.tools.namefind.TokenNameFinderModel"/>
+<fullyQualifiedTypeName name="opennlp.uima.namefind.NameFinder"/>
+<fullyQualifiedTypeName name="opennlp.tools.namefind.NameFinderME"/>
+<fullyQualifiedTypeName name="opennlp.tools.util.Span"/>
+<fullyQualifiedTypeName name="opennlp.tools.postag.POSModel"/>
+<fullyQualifiedTypeName name="opennlp.tools.cmdline.postag.POSModelLoader"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="opennlp.tools.cmdline.PerformanceMonitor"/>
+<fullyQualifiedTypeName name="opennlp.tools.postag.POSTagger"/>
+<fullyQualifiedTypeName name="opennlp.uima.postag.POSTagger"/>
+<fullyQualifiedTypeName name="opennlp.tools.postag.POSTaggerME"/>
+<fullyQualifiedTypeName name="opennlp.tools.util.ObjectStream"/>
+<fullyQualifiedTypeName name="java.io.StringReader"/>
+<fullyQualifiedTypeName name="opennlp.tools.util.PlainTextByLineStream"/>
+<fullyQualifiedTypeName name="opennlp.tools.postag.POSSample"/>
+<fullyQualifiedTypeName name="opennlp.tools.chunker.ChunkerModel"/>
+<fullyQualifiedTypeName name="opennlp.tools.chunker.ChunkerME"/>
+<fullyQualifiedTypeName name="opennlp.tools.tokenize.WhitespaceTokenizer"/>
+<fullyQualifiedTypeName name="opennlp.tools.util.InvalidFormatException"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="opennlp.tools.parser.ParserModel"/>
+<fullyQualifiedTypeName name="opennlp.tools.parser.ParserFactory"/>
+<fullyQualifiedTypeName name="opennlp.tools.parser.chunking.Parser"/>
+<fullyQualifiedTypeName name="opennlp.tools.parser.Parser"/>
+<fullyQualifiedTypeName name="opennlp.tools.cmdline.parser.ParserTool"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+</qualifiedTypeNameHistroy>

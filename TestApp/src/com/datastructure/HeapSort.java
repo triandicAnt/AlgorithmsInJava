@@ -4,6 +4,7 @@
 package com.datastructure;
 
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 /**
  * @author Sudhansu
@@ -43,6 +44,11 @@ public class HeapSort {
 		hp.heapSort(array, array.size());
 		hp.printArray(array);
 		
+		TreeMap<Integer, Integer> tm = new TreeMap<>();
+		tm.put(1,2);
+		tm.put(1, 3);
+		System.out.println(tm.toString());
+		
 	}
 
 
@@ -70,7 +76,7 @@ public class HeapSort {
 			maxHeapify(mh, l);
 		}
 	}
-	private void minHeapify(MaxHeap mh, int index){
+	/*private void minHeapify(MaxHeap mh, int index){
 		int l = index;
 		int left = 2*index +1;
 		int right = 2*index +2;
@@ -82,7 +88,7 @@ public class HeapSort {
 			swap(mh.array,l,index);
 			maxHeapify(mh, l);
 		}
-	}
+	}*/
 	void swap(ArrayList array, int a , int b){
 		Object temp = array.get(a) ; 
 		array.set( a, array.get(b)) ;

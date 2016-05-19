@@ -3,8 +3,6 @@
  */
 package com.datastructure;
 
-import java.util.HashMap;
-
 /**
  * @author Sudhansu
  *

@@ -2,6 +2,7 @@ import java.lang.Math; // header stuff MUST go above the first class
 import java.util.*;
 import java.util.Arrays;
 // our main class becomes a file but the main method is still found
+//http://stackoverflow.com/questions/9734474/find-longest-substring-without-repeating-characters
 public class LongestSubstring
 {
  	public static void main(String[] args) {

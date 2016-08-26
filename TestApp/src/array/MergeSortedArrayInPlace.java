@@ -10,6 +10,7 @@ public class MergeSortedArrayInPlace {
 		a2[2] = 6;
 		System.out.println(Arrays.toString(mergeArray(a1, a2, 3, 3)));
 		System.out.println(Arrays.toString(sortArrayInPlace(new int[] {0,0,1,1,0,1,0,0,1})));
+		System.out.println(binarySearchRotated(0, 7, new int []{6, 7,8,1,2,3,4,5},8));
 		
 	}
 	
@@ -55,5 +56,34 @@ public class MergeSortedArrayInPlace {
 	// in order
 	//??
 	
+	/**
+	 * find an element in rotated sorted array
+	 */
+	static int binarySearchRotated(int l, int h, int[] a, int e){
+		if(a.length == 0)
+			return -1;
+		if (a.length == 1 && a[0] == e)
+			return 0;
+		int m = (l+h)/2;
+		if (l==h && a[l]!=e)
+			return -1;
+		if (e == a[m])
+			return m;
+		boolean flag = false;
+		if(a[h] > a[m])
+			flag = true;
+		if (flag){
+			if(e > a[m] && e <= a[h]){
+				 return binarySearchRotated(m+1, h, a, e);
+			}
+			else{
+				return  binarySearchRotated(l, m-1, a, e);
+			}
+		}
+		else{
+			 return binarySearchRotated(l, m-1, a, e);
+		}
+		
+	}
 	
 }

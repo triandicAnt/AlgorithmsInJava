@@ -10,13 +10,31 @@ public class BinaryTree {
 
 	/**
 	 * @param args
+	 * InOrder Recursive
+	 * InOrder Iterative
+	 * find sum
+	 * countree - Count number of bs tree created from a given number,
+	 * preorder iterative
+	 * post order iterative
+	 * bfs
+	 * add node iterative
+	 * add node recursive
+	 * LCA binary tree
+	 * LCA BST
+	 * node exists
+	 * find node
+	 * Build a tree with given in order and pre order
+	 * print all ancestors of a node
+	 * Print tree in spiral order
+	 * Find level with maximum sum - not working
+	 * Morris inorder traversal
 	 */
 
 	protected BTNode root;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int a[] = new int[]{2,4,1,5,7,4,9};
+		int a[] = new int[]{3,0,1,6,7,8,15};
 		BinaryTree bt = new BinaryTree();
 		
 		for(int i : a){
@@ -47,8 +65,12 @@ public class BinaryTree {
 //		bt.printAllAncestors(root, 6);
 //		bt.printZigZagFormat(root);
 //		System.out.println(bt.findLevelWithMaxSum(root));
-		int val = bt.findLCSUsingParent(bt.root, 4, 5);
-		System.out.println(val);
+//		int val = bt.findLCSUsingParent(bt.root, 4, 5);
+//		System.out.println(val);
+		System.out.println();
+		bt.morrisInOrder(bt.root);
+		System.out.println();
+		System.out.println(bt.findLevelWithMaxSum(bt.root));
 	}
 	
 	/**
@@ -446,7 +468,7 @@ public class BinaryTree {
 		while(!q.isEmpty()){
 			BTNode temp = q.poll();
 			if(temp==null){
-				if(curSum>maxSum){
+				if(curSum > maxSum){
 					maxSum = curSum;
 					maxLevel = level;
 				}
@@ -454,6 +476,7 @@ public class BinaryTree {
 					q.add(null);
 				}
 				level ++;
+				curSum = 0;
 			}
 			else{
 				curSum = curSum + root.data;
@@ -463,7 +486,7 @@ public class BinaryTree {
 					q.add(temp.right);
 			}
 		}
-		return maxLevel;
+		return maxSum;
 	}
 	public int findLCSUsingParent(BTNode root, int n1, int n2){
 		if(root == null)
@@ -484,6 +507,32 @@ public class BinaryTree {
 			node2 = node2.parent;
 		}
 		return Integer.MIN_VALUE;
+	}
+	
+	/**
+	 * Morris inorder traversal
+	 */
+	public void morrisInOrder(BTNode root){
+		BTNode current = root;
+		while(current!=null){
+			if(current.left == null){
+				System.out.print(current.data+ " ");
+				current = current.right;
+			}else{
+				BTNode predecessor = current.left;
+				while(predecessor.right != current && predecessor.right != null){
+					predecessor = predecessor.right;
+				}
+				if(predecessor.right == null){
+					predecessor.right = current;
+					current = current.left;
+				}else{
+					predecessor.right = null;
+					System.out.print(current.data+ " ");
+					current = current.right;
+				}
+			}
+		}
 	}
 }
 

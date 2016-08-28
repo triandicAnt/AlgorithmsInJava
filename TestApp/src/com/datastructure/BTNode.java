@@ -12,4 +12,13 @@ public class BTNode{
 	BTNode left;
 	BTNode right;
 	BTNode parent;
+	
+	BTNode(){
+		
+	}
+	
+	BTNode(int n){
+		data = n;
+		left = right = parent = null;
+	}
 }

@@ -67,10 +67,22 @@ public class BinaryTree {
 //		System.out.println(bt.findLevelWithMaxSum(root));
 //		int val = bt.findLCSUsingParent(bt.root, 4, 5);
 //		System.out.println(val);
-		System.out.println();
-		bt.morrisInOrder(bt.root);
-		System.out.println();
-		System.out.println(bt.findLevelWithMaxSum(bt.root));
+//		System.out.println();
+//		bt.morrisInOrder(bt.root);
+//		System.out.println();
+//		System.out.println(bt.findLevelWithMaxSum(bt.root));
+		BTNode root = new BTNode(0);
+		root.left = new BTNode(2);
+		root.right = new BTNode(2);
+		root.left.left = new BTNode(3);
+		root.left.right = new BTNode(4);
+		root.right.left = new BTNode(4);
+		root.right.right = new BTNode(3);
+		root.left.left.left = new BTNode(5);
+		root.right.right.right = new BTNode(5);
+
+		System.out.println(new BinaryTree().isMirror(root));
+		
 	}
 	
 	/**
@@ -533,6 +545,23 @@ public class BinaryTree {
 				}
 			}
 		}
+	}
+	public boolean isMirror(BTNode root){
+		if(root == null)
+			return false;
+		return checkMirror(root.left, root.right);
+	}
+	public boolean checkMirror(BTNode root1, BTNode root2){
+		if(root1 == null && root2 == null)
+			return true;
+		if(root1 == null || root2 == null)
+			return false;
+		if (root1.data == root2.data){
+			System.out.println(root1.data + " " + root2.data);
+			return checkMirror(root1.left, root2.right) && checkMirror(root1.right, root2.left);
+		}
+		else
+			return false;
 	}
 }
 

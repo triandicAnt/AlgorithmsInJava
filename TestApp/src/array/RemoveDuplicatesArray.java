@@ -6,8 +6,10 @@ public class RemoveDuplicatesArray {
 	public static void main(String[] args) {
 		int [] a = {1,2,1,3,1};
 		int [] b = {1,1,1,1,1};
+		int [] c = {1,2,3,4,5};
 		System.out.println(Arrays.toString(removeDuplicates(a)));
 		System.out.println(Arrays.toString(removeDuplicates(b)));
+		System.out.println(Arrays.toString(removeDuplicates(c)));
 
 	}
 	

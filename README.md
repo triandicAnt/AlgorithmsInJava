@@ -2,7 +2,6 @@
 java codes
 
 * src:
-	* AddSubtractNumbers.java
 	* array:
 		* CountPairs.java
 		* HistogramArea.java
@@ -25,14 +24,6 @@ java codes
 			* GraphVertex.java
 			* StronglyConnectedComponents.java
 			* TopologicalSort.java
-	* CommonElements.java
-	* CountComp.java
-	* CountPalin.java
-	* CountPalindrome.java
-	* GenrateRandom.java
-	* InterviewQuestions.java
-	* IsItPossible.java
-	* LongestSubstring.java
 	* random:
 		* ArrayProblems.java
 		* Bucket.java
@@ -45,7 +36,6 @@ java codes
 		* Shape.java
 		* StringIntersect.java
 		* UtopianTree.java
-	* RecursionProduct.java
 	* regex:
 		* AncestorTree.java
 		* FamilyTree.java
@@ -53,6 +43,16 @@ java codes
 		* RegexTestHarness.java
 		* StringSplit.java
 		* ValidateDemo.java
+		* AddSubtractNumbers.java
+	* RecursionProduct.java
+	* CommonElements.java
+	* CountComp.java
+	* CountPalin.java
+	* CountPalindrome.java
+	* GenrateRandom.java
+	* InterviewQuestions.java
+	* IsItPossible.java
+	* LongestSubstring.java
 	* RemoveDup.java
 	* StringAnagram.java
 	* StringChain.java

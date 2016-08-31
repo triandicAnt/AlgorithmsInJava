@@ -7,6 +7,7 @@ java codes
 		* HistogramArea.java
 		* MergeSortedArrayInPlace.java
 		* RemoveDuplicatesArray.java
+		* MaximumSumSubArray.java
 	* com:
 		* datastructure:
 			* AdjacencyList.java

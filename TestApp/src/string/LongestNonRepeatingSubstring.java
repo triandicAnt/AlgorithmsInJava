@@ -1,13 +1,11 @@
 package string;
-import java.lang.Math; // header stuff MUST go above the first class
-import java.util.*;
-import java.util.Arrays;
+import java.util.HashSet;
 // our main class becomes a file but the main method is still found
 //http://stackoverflow.com/questions/9734474/find-longest-substring-without-repeating-characters
-public class LongestSubstring
+public class LongestNonRepeatingSubstring
 {
  	public static void main(String[] args) {
-	    findLongestSub("ABDEFGABEF");
+	    findLongestSub("stackoverflow");
 	}
 	
 	public static void findLongestSub(String str){
@@ -26,7 +24,7 @@ public class LongestSubstring
 	        }
 	        hs.add(new Character(c));
 	    }
-	    System.out.println(o.length());
+	    System.out.println(o);
 	}
 }
 // this will become its own file too (and these can be in any order)

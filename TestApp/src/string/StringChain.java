@@ -1,3 +1,4 @@
+package string;
 public class StringChain {
 
     public static void main(String[] args) {

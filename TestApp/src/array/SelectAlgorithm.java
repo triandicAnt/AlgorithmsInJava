@@ -1,7 +1,7 @@
 /**
  * 
  */
-package random;
+package array;
 
 import java.util.Random;
 

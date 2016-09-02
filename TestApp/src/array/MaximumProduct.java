@@ -1,7 +1,7 @@
 /**
  * 
  */
-package random;
+package array;
 
 /**
  * @author Sudhansu

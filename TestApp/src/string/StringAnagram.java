@@ -1,3 +1,4 @@
+package string;
 import java.lang.Math; // header stuff MUST go above the first class
 
 public class StringAnagram

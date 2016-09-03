@@ -18,7 +18,6 @@ public class CountPalin {
 	 public static Set<String> palindromes(final String input) {
 
 	     final Set<String> result = new HashSet<>();
-
 	     for (int i = 0; i < input.length(); i++) {
 	         // expanding even length palindromes:
 	         expandPalindromes(result,input,i,i+1);

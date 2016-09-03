@@ -17,6 +17,11 @@ public class KMP {
 		 String str1 = "acacabacacabacacac";
 		 String pattern1 = "bacacab";
 		 System.out.println(KMPString(str1.toCharArray(), pattern1.toCharArray()));
+		 StringBuffer sb = new StringBuffer();
+		 sb = sb.append("abc");
+		 Character c = 'c';
+		 System.out.println(c);
+		 
 
 	}
 	

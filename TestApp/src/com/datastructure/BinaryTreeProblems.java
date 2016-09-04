@@ -35,6 +35,8 @@ public class BinaryTreeProblems extends BinaryTree {
 		new BinaryTree().inOrder(root1);
 		
 		
+//		find level with max nodes
+		BinaryTree bTree = new BinaryTree();
 		BTNode root2;
 		
         root2 = new BTNode(1);
@@ -48,6 +50,26 @@ public class BinaryTreeProblems extends BinaryTree {
         System.out.println();
         System.out.println(bp.findLevelWithMaxNodes(root2));
         System.out.println(bp.findLevelWithMaxNodes(root1));
+        
+        // remove all half nodes
+        BTNode root3 = new BTNode(2);
+        root3.left = new BTNode(7);
+        root3.right = new BTNode(5);
+        root3.left.right = new BTNode(6);
+        root3.left.right.left = new BTNode(1);
+        root3.left.right.right = new BTNode(11);
+        root3.right.right = new BTNode(9);
+        root3.right.right.left = new BTNode(3);
+        
+        bTree.inOrder(root3);
+        System.out.println();
+        bTree.inOrder(bp.removeHalfNodes(root3));
+        
+        /**
+         * 7 1 6 11 2 5 3 9
+		 * 1 6 11 2 4
+         */
+        
 
 	}
 
@@ -171,6 +193,26 @@ public class BinaryTreeProblems extends BinaryTree {
 			return getWidth(root.left, level-1) + getWidth(root.right, level-1);
 		}
 		return 0;
+	}
+	
+	/**
+	 * remove all the half nodes from a bt
+	 */
+	BTNode removeHalfNodes(BTNode root){
+		if(root == null)
+			return null;
+		// preorder traversal
+		root.left = removeHalfNodes(root.left);
+		root.right = removeHalfNodes(root.right);
+		// if leaf return it
+		if(root.left == null && root.right == null)
+			return root;
+		if(root.left == null)
+			return root.right;
+		if(root.right == null)
+			return root.left;
+		return root;
+		
 	}
 }
 

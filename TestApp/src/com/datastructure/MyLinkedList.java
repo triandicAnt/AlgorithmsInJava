@@ -48,13 +48,28 @@ public class MyLinkedList{
 		for(int i:a){
 		 m.createList(i);
 		}
-		m.printLinkedList(m.root);
+		//m.printLinkedList(m.root);
 
 		//m.root = m.reverseEveryK(m.root, 3);
 		System.out.println();
-		m.root = m.reverseList(m.root);
-		m.printLinkedList(m.root);
-	}
+		//m.root = m.reverseList(m.root);
+		//m.printLinkedList(m.root);
+		System.out.println();
+		
+		// reverse a list iterative
+		int []b = new int [] {10,15,12,13,20,14};
+		MyLinkedList ll = new MyLinkedList();
+		for(int i:b){
+			ll.createList(i);
+		}
+		ll.printLinkedList(ll.root);
+		System.out.println();
+		//ll.root = ll.reverseListIterative(ll.root);
+		ll.root = ll.reverseListRecursive(ll.root);
+		ll.printLinkedList(ll.root);
+		
+	 }	
+		
 	 /**
 	  * reverse every k elements in a linked list
 	  */
@@ -84,7 +99,7 @@ public class MyLinkedList{
 	 }
 	 
 	
-	LinkedList reverseList(LinkedList head){
+	/*LinkedList reverseList(LinkedList head){
 		if(head == null || head.next == null)
 			return head;
 		LinkedList rest = head.next;
@@ -92,5 +107,39 @@ public class MyLinkedList{
 		LinkedList reverseLst = reverseList(rest);
 		rest.next = head;
 		return reverseLst;
+	}*/
+	
+	 /**
+	  * Reverse linked list itertive
+	  * @param root
+	  * @return
+	  */
+	LinkedList reverseListIterative(LinkedList root){
+		if(root == null || root.next == null)
+			return root;
+	
+		LinkedList temp = root;
+		LinkedList next = null;
+		LinkedList prev = null;
+		
+		while(temp!=null){
+			next = temp.next;
+			temp.next = prev;
+			prev = temp;
+			temp = next;
+		}
+		return prev;
+	}
+	// 10>15>12>13>20>14>
+
+	LinkedList reverseListRecursive(LinkedList root){
+		if(root == null || root.next == null){
+			return root;
+		}
+		LinkedList rest = root.next;
+		root.next = null;
+		LinkedList reverseHead = reverseListRecursive(rest);
+		rest.next = root;
+		return reverseHead;
 	}
 }

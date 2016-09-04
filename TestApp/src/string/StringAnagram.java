@@ -9,6 +9,7 @@ public class StringAnagram
     String str1 = "aab";
     String str2 = "aba";
     checkAnagram(str1, str2);
+    System.out.println(arr.length);
   }
   
   public static void checkAnagram(String str1, String str2){

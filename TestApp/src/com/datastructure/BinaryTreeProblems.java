@@ -19,8 +19,35 @@ public class BinaryTreeProblems extends BinaryTree {
 		BinaryTree b = new BinaryTree();
 		int []a = new int [] {1, 7, 5, 50, 40, 10};
 		b.root = bp.constructBST(a);
-		System.out.println(b.root.data);
-		new BinaryTree().inOrder(b.root);
+		//System.out.println(b.root.data);
+		//new BinaryTree().inOrder(b.root);
+		
+		BTNode root1 = new BTNode(10);
+		root1.left = new BTNode(-2);
+		root1.right = new BTNode(6);
+		root1.left.left = new BTNode(8);
+		root1.left.right = new BTNode(-4);
+		root1.right.left = new BTNode(7);
+		root1.right.right = new BTNode(5);
+		new BinaryTree().inOrder(root1);
+		System.out.println("");
+		bp.toSumTree(root1);
+		new BinaryTree().inOrder(root1);
+		
+		
+		BTNode root2;
+		
+        root2 = new BTNode(1);
+        root2.left = new BTNode(2);
+        root2.right = new BTNode(3);
+        root2.left.left = new BTNode(4);
+        root2.left.right = new BTNode(5);
+        root2.right.right = new BTNode(8);
+        root2.right.right.left = new BTNode(6);
+        root2.right.right.right = new BTNode(7);
+        System.out.println();
+        System.out.println(bp.findLevelWithMaxNodes(root2));
+        System.out.println(bp.findLevelWithMaxNodes(root1));
 
 	}
 
@@ -74,7 +101,77 @@ public class BinaryTreeProblems extends BinaryTree {
 		}
 		return last;
 	}
+	/**
+	 *    	   10
+           /      \
+          -2        6
+       /   \      /  \ 
+     8     -4    7    5
+     
+               20(4-2+12+6)
+           /      \
+        4(8-4)      12(7+5)
+       /   \      /  \ 
+     0      0    0    0
+	 */
+	/**
+	 * create a tosum tree from a binary tree.
+	 * each node will be equal to the sum of left subtree and right subtree
+	 * 
+	 */
+	int toSumTree(BTNode root){
+		
+		if (root == null){
+			return 0;
+		}
+		int oldValue = root.data;
+		root.data = toSumTree(root.left) + toSumTree(root.right);
+		return root.data + oldValue;
+	}
+	/**
+	 * 
+	 *     1
+        /  \
+       2    3
+     /  \     \
+    4    5     8 
+              /  \
+             6    7
+	 */
+	/**
+	 * Level with maximum width in a binary tree
+	 * 
+	 *  */
 	
+	int findLevelWithMaxNodes(BTNode root){
+		int h = new BinaryTree().heightOfTree(root);
+		int max = Integer.MIN_VALUE;
+		for (int i = 1; i <= h; i++) {
+			int w = getWidth(root, i);
+			if(w>max){
+				max = w; 
+			}
+		}
+		return max;
+	}
+	/**
+	 * find width/no. of nodes at a level
+	 * @param root
+	 * @param level
+	 * @return
+	 */
+	int getWidth(BTNode root, int level){
+		if(root == null){
+			return 0;
+		}
+		if(level == 1){
+			return 1;
+		}
+		else if(level >1){
+			return getWidth(root.left, level-1) + getWidth(root.right, level-1);
+		}
+		return 0;
+	}
 }
 
 // ref http://stackoverflow.com/questions/13167536/how-to-construct-bst-given-post-order-traversal

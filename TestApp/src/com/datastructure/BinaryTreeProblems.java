@@ -31,7 +31,8 @@ public class BinaryTreeProblems extends BinaryTree {
 		root1.right.right = new BTNode(5);
 		new BinaryTree().inOrder(root1);
 		System.out.println("");
-		bp.toSumTree(root1);
+		//bp.toSumTree(root1);
+		bp.toSum(root1);
 		new BinaryTree().inOrder(root1);
 		
 		
@@ -47,9 +48,9 @@ public class BinaryTreeProblems extends BinaryTree {
         root2.right.right = new BTNode(8);
         root2.right.right.left = new BTNode(6);
         root2.right.right.right = new BTNode(7);
-        System.out.println();
-        System.out.println(bp.findLevelWithMaxNodes(root2));
-        System.out.println(bp.findLevelWithMaxNodes(root1));
+//        System.out.println();
+//        System.out.println(bp.findLevelWithMaxNodes(root2));
+//        System.out.println(bp.findLevelWithMaxNodes(root1));
         
         // remove all half nodes
         BTNode root3 = new BTNode(2);
@@ -61,9 +62,9 @@ public class BinaryTreeProblems extends BinaryTree {
         root3.right.right = new BTNode(9);
         root3.right.right.left = new BTNode(3);
         
-        bTree.inOrder(root3);
-        System.out.println();
-        bTree.inOrder(bp.removeHalfNodes(root3));
+//        bTree.inOrder(root3);
+//        System.out.println();
+//        bTree.inOrder(bp.removeHalfNodes(root3));
         
         /**
          * 7 1 6 11 2 5 3 9
@@ -152,7 +153,7 @@ public class BinaryTreeProblems extends BinaryTree {
 	}
 	/**
 	 * 
-	 *     1
+	 *    1
         /  \
        2    3
      /  \     \
@@ -214,6 +215,21 @@ public class BinaryTreeProblems extends BinaryTree {
 		return root;
 		
 	}
+	
+	int toSum(BTNode root){
+		if(root==null)
+			return 0;
+		int oldValue = root.data;
+		int left = toSum(root.left);
+		int right = toSum(root.right);
+		
+		if(root.left == null && root.right == null)
+			root.data = 0;
+		else
+			root.data = left+ right;
+		return oldValue + left+ right;
+	}
+	
 }
 
 // ref http://stackoverflow.com/questions/13167536/how-to-construct-bst-given-post-order-traversal

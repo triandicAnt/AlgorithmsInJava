@@ -62,11 +62,21 @@ public class MyLinkedList{
 		for(int i:b){
 			ll.createList(i);
 		}
-		ll.printLinkedList(ll.root);
+//		ll.printLinkedList(ll.root);
 		System.out.println();
 		//ll.root = ll.reverseListIterative(ll.root);
-		ll.root = ll.reverseListRecursive(ll.root);
-		ll.printLinkedList(ll.root);
+//		ll.root = ll.reverseListRecursive(ll.root);
+//		ll.printLinkedList(ll.root);
+		int [] c = new int [] {10,12,9,8,7,5}; 
+		MyLinkedList ll1 = new MyLinkedList();
+		for(int i:c){
+			ll1.createList(i);
+		}
+		ll1.printLinkedList(ll1.root);
+		
+		ll1.root = ll1.swapLinkedLists(ll1.root, 10, 5);
+		ll1.printLinkedList(ll1.root);
+
 		
 	 }	
 		
@@ -131,7 +141,11 @@ public class MyLinkedList{
 		return prev;
 	}
 	// 10>15>12>13>20>14>
-
+	/**
+	 *  Reverse linked list recursive
+	 * @param root
+	 * @return
+	 */
 	LinkedList reverseListRecursive(LinkedList root){
 		if(root == null || root.next == null){
 			return root;
@@ -142,4 +156,50 @@ public class MyLinkedList{
 		rest.next = root;
 		return reverseHead;
 	}
+	
+	LinkedList swapLinkedLists(LinkedList head, int x, int y){
+		if(head == null || head.next == null)
+			return head;
+		LinkedList curX = head;
+		LinkedList preX = null;
+		LinkedList curY  = head;
+		LinkedList preY = null;
+		
+		while(curX!=null && curX.data != x)
+		{
+			preX = curX;
+			curX = curX.next;
+		}
+		while(curY!=null && curY.data != y)
+		{
+			preY = curY;
+			curY = curY.next;
+		}
+		if(curX == null || curY == null)
+			return head;
+		
+		// System.out.println("\n" + preX.data + " " + curX.data + " " + preY.data + " "+ curX.data);
+		// add check for x or y being root
+		
+		// also add check for next of x and y being null
+		
+		//else swap nodes
+		System.out.println();
+		if(preX!= null)
+			preX.next = curY;
+		else
+			head = curY;
+		
+		if(preY!= null)
+			preY.next = curX;
+		else
+			head = curX;
+		// temp var to keep track of next pointer
+		LinkedList temp = curX.next; 
+		curX.next = curY.next;
+		curY.next = temp;
+//		
+		return head;
+	}
+	
 }

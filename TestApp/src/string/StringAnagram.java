@@ -1,6 +1,9 @@
 package string;
-import java.lang.Math; // header stuff MUST go above the first class
-
+/**
+ * Check whether two strings are Anagram or not
+ * @author Sudhansu
+ *
+ */
 public class StringAnagram
 {
   static int[] arr = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};

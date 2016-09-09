@@ -13,6 +13,8 @@ public class LongestNonDecSeq {
 		int [] c = new int []{-1,2,3,-1,1};
 		// 0,-1,0,-1,0
 		printDuplicates(c);
+		String s = "Sudhansu";
+		System.out.println(s.substring(7,8));
 	}
 	
 	/**

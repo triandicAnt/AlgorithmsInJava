@@ -9,9 +9,15 @@ public class WordBreakDP {
 		dict.add("a");
 		dict.add("am");
 		dict.add("ace");
+		dict.add("Hello");
+		dict.add("How");
+		dict.add("are");
+		dict.add("you");
 		
 		String str = "iamace";
+		String str1 = "Helloyouama";
 		System.out.println(checkWordBreak(str, dict));
+		System.out.println(checkWordBreak(str1, dict));
 	}
 	
 	/**

@@ -1,5 +1,11 @@
 package string;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.lang.reflect.Field;
 public class PrintNonOverlappingNums {
 
 	public static void main(String[] args) {
@@ -9,9 +15,14 @@ public class PrintNonOverlappingNums {
 		for(int i :a){
 			sb.append(i);
 		}
-		permute(sb.toString(), "");
+		//permute(sb.toString(), "");
+		int a1 = 1;
+		int b = a1++;
+		int c = ++b;
+		System.out.println(a1 + "" +b + "" +c);
 
 	}
+	
 	/**
 	 * (1234)
 	   (1)(234)
@@ -34,3 +45,4 @@ public class PrintNonOverlappingNums {
 	}
 	
 }
+

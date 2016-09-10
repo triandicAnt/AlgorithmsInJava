@@ -12,6 +12,7 @@ public class CountPalin {
 		// TODO Auto-generated method stub
 		Set<String> set = palindromes("aabaa");
 		System.out.println(set.size());
+		System.out.println("--"+"aabaa".substring(0,0));
 
 	}
 	

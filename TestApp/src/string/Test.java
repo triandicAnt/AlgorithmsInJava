@@ -8,7 +8,8 @@ public class Test {
 
 	public static void main(String[] args) {
 		Arrays.fill(f,-1);
-		System.out.println(getFib(7));
+		System.out.println(fib(11));
+		System.out.println(findFib(11));
 	}
 	
 	public static int getFib(int n){
@@ -30,7 +31,19 @@ public class Test {
 		}
 		return f[n];
 	}
-	Hashtable<Integer, Integer> h = new Hashtable<Integer,Integer>();
+	static int findFib(int n){
+		int a = 0;
+		int b = 1;
+		int c = 0;
+		for(int i=2; i<=n;i++){
+			c = a+b;
+			a = b;
+			b = c;
+		}
+		
+		return c;
+	}
+	
 	public static int fib(int n){
 		if(n<0) return -1;
 		else if(n==0) return 0;
@@ -44,4 +57,6 @@ public class Test {
 		}
 		return f[n];
 	}
+	
+	
 }

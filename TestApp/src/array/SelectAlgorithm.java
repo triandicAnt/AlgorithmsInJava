@@ -102,3 +102,30 @@ public class SelectAlgorithm {
 	    return randomNum;
 	}
 }
+/**
+/**
+def  melon_count(boxes, melons):
+#print boxes
+#print melons
+x = 0
+i = 0
+j = 0
+max = 0
+c = 0
+
+for x in range(0,len(melons)):
+    i = x
+    j = 0
+    c = 0
+    while(i<len(melons) and j< len(boxes)):
+        if melons[i]<= boxes[j]:
+            c = c+1
+            i = i+1
+            j += 1
+        else:
+            j = j+1
+    if c > max:
+        max = c
+return max
+
+**/

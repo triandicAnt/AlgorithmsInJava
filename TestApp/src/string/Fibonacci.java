@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Hashtable;
 
 
-public class Test {
+public class Fibonacci {
 	static int f[] = new int[8];
 
 	public static void main(String[] args) {

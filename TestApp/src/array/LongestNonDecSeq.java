@@ -10,12 +10,10 @@ public class LongestNonDecSeq {
 		int b [] = new int [] {5, 3, 4, 8, 6, 7};
 		//System.out.println(lonNonDecSeq(b));
 		
-		int [] c = new int []{-1,2,3,-1,1};
+		int [] c = new int []{2,1,3,4,1,2};
 		// 0,-1,0,-1,0
 		printDuplicates(c);
-		String s = "Sudhansu";
-		System.out.println(s.substring(7,8));
-	}
+		}
 	
 	/**
 	 * given an array find the longest non decreasing sequence

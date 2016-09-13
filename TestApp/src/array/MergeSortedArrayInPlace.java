@@ -3,14 +3,15 @@ import java.util.Arrays;
 public class MergeSortedArrayInPlace {
 
 	public static void main(String[] args) {
-		int a1[] = {1,3,5};
-		int[] a2 = new int[6];
+		int a1[] = {1,3,5,7};
+		int[] a2 = new int[7];
 		a2[0] = 2;
 		a2[1] = 4;
 		a2[2] = 6;
-		System.out.println(Arrays.toString(mergeArray(a1, a2, 3, 3)));
-		System.out.println(Arrays.toString(sortArrayInPlace(new int[] {0,0,1,1,0,1,0,0,1})));
-		System.out.println(binarySearchRotated(0, 7, new int []{6, 7,8,1,2,3,4,5},8));
+		//System.out.println(Arrays.toString(mergeArray(a1, a2, 3, 3)));
+		System.out.println(Arrays.toString(mergeSortedArray1(a1, a2, 4, 3)));
+		//System.out.println(Arrays.toString(sortArrayInPlace(new int[] {0,0,1,1,0,1,0,0,1})));
+		//System.out.println(binarySearchRotated(0, 7, new int []{6, 7,8,1,2,3,4,5},8));
 		
 	}
 	
@@ -84,6 +85,44 @@ public class MergeSortedArrayInPlace {
 			 return binarySearchRotated(l, m-1, a, e);
 		}
 		
+	}
+	
+	static int [] mergeSortedArray1(int [] a1, int []a2, int l1, int l2){
+		if(l1<=0){
+			return a2; 
+		}
+		if(l2<=0){
+			return a1;
+		}
+		int r = l1+l2-1;
+		l1 = l1-1;
+		l2 = l2-1;
+		while(l1>=0 && l2>=0){
+			if(a1[l1] >= a2[l2]){
+				a2[r] = a1[l1];
+				r = r-1;
+				l1 = l1-1;
+			}else{
+				a2[r] = a2[l2];
+				r = r-1;
+				l2 = l2-1;
+			}
+		}
+		if(l1>=0){
+			while(l1>=0){
+				a2[r] = a1[l1];
+				r = r-1;
+				l1 = l1-1;
+			}
+		}
+		else if(l2>=0){
+			while(l2>=0){
+				a2[r] = a2[l2];
+				r = r-1;
+				l2 = l1-2;
+			}
+		}
+		return a2;
 	}
 	
 }

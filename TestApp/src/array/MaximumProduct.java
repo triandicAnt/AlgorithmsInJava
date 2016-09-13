@@ -14,10 +14,11 @@ public class MaximumProduct {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int []a = new int []{2,3,10,11,5,3};
-		printMaxProductPair(a);
-		maxDifference(a);
-		int [] b = new int []{3,2,-2,1,-4,4};
+		int []a = new int []{2,3,10,11,5,25};
+		//printMaxProductPair(a);
+		//maxDifference(a);
+		//System.out.println(findMinDiff(a));
+		int [] b = new int []{3,2,-2,1,-4,9};
 		findLCS(b);
 
 	}
@@ -96,5 +97,19 @@ public class MaximumProduct {
 			max_sum = Math.max(sum_so_far, max_sum);
 		}
 		System.out.println("LCS is "+ max_sum);
+	}
+	
+	static int findMinDiff(int [] a){
+		int min = a[0];
+		int max = Integer.MIN_VALUE;
+		for(int i =0; i<a.length;i++){
+			int diff = a[i] - min;
+			if(diff >0 && diff >max){
+				max = diff;
+			}else if(a[i]<min){
+				min = a[i];
+			}
+		}
+		return max;
 	}
 }

@@ -5,13 +5,16 @@ public class MaximumSumSubArray {
 	public static void main(String[] args) {
 		int []b = {-2,-3,-4,-1};
 		int [] a = {-2, -3, 4, -1, -2, 1, 5, -3};
-		System.out.println(maximumSumSubArray(a));
-		System.out.println(maximumSumSubArray(b));
-		System.out.println("---------------");
+		//System.out.println(maximumSumSubArray(a));
+		//System.out.println(maximumSumSubArray(b));
+		//System.out.println("---------------");
 		int [] c = { 15, 27, 14, 38, 26, 55, 46, 65, 85 } ;
-		System.out.println(LIS(c));
+		//System.out.println(LIS(c));
 		int []d = {10, 9, 2, 5, 3, 7, 101, 18};
-		System.out.println(LIS(d));
+		//System.out.println(LIS(d));
+		int [] x = {-1, 1, -1, -1, 1, 1, -1};
+		System.out.println(maximumSumSubArray(x));
+		
 
 	}
 	

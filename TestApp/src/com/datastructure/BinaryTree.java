@@ -481,31 +481,7 @@ public class BinaryTree {
 		return Integer.MIN_VALUE;
 	}
 	
-	/**
-	 * Morris inorder traversal
-	 */
-	public void morrisInOrder(BTNode root){
-		BTNode current = root;
-		while(current!=null){
-			if(current.left == null){
-				System.out.print(current.data+ " ");
-				current = current.right;
-			}else{
-				BTNode predecessor = current.left;
-				while(predecessor.right != current && predecessor.right != null){
-					predecessor = predecessor.right;
-				}
-				if(predecessor.right == null){
-					predecessor.right = current;
-					current = current.left;
-				}else{
-					predecessor.right = null;
-					System.out.print(current.data+ " ");
-					current = current.right;
-				}
-			}
-		}
-	}
+	
 	public boolean isMirror(BTNode root){
 		if(root == null)
 			return false;

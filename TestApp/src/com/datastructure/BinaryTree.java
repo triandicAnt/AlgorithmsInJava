@@ -358,48 +358,8 @@ public class BinaryTree {
 			return root;
 		return (leftLCA!=null?leftLCA:rightLCA);
 	}
-	static int pre_index = 0;
 	
-	// Build a tree with given In-order and pre order .
-	/**
-	 * 
-	 * @param preOrder
-	 * @param inOrder
-	 * @param in_start
-	 * @param in_end
-	 * @return
-	 */
-	BTNode buildTree(int [] preOrder, int [] inOrder, int in_start, int in_end){
-		if(in_start>in_end){
-			return null;
-		}
-		BTNode newNode = new BTNode();
-		newNode.data = preOrder[pre_index];
-		pre_index ++;
-		if(in_start == in_end){
-			return newNode;
-		}
-		int in_index = 0;
-		in_index= searchNode(inOrder, newNode.data);
-		newNode.left = buildTree(preOrder, inOrder, in_start, in_index-1);
-		newNode.right = buildTree(preOrder, inOrder, in_index+1, in_end);
-		return newNode;
-		
-		
-	}
-	/**
-	 * 
-	 * @param inOrder
-	 * @param data
-	 * @return
-	 */
-	int searchNode(int [] inOrder, int data){
-		for (int i = 0; i < inOrder.length; i++) {
-			if(inOrder[i]==data)
-				return i;
-		}
-		return -1;
-	}
+	
 	/**
 	 * Print all ancestors of a given node
 	 * @param root

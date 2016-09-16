@@ -133,23 +133,7 @@ public class BinaryTree {
 		return sum;
 	}
 	
-	// Count number of bs tree created from a given number,
-	/**
-	 * 
-	 * @param num
-	 * @return
-	 */
-	protected int countTree(int num){
-		if(num==0 || num ==1)
-			return 1;
-		int sum = 0;
-		for(int i = 1;i<=num;i++){
-			int leftCount = countTree(i-1);
-			int rightCount = countTree(num-i);
-			sum = sum + leftCount*rightCount;
-		}
-		return sum;
-	}
+	
 	
 	// Iterative in order traversal
 	/**

@@ -14,6 +14,18 @@ public class NumberOfBST {
 
 
 	}
+	
+	/**
+	 * 
+	 * The number of BSTs possible with n nodes is given by the Catalan Number
+Cn=1n+1(2nn)=(2n)!/(n+1)!n!
+
+The number of unlabeled binary trees is the same as the number of BSTs possible
+
+The number of labelled binary trees possible is given by
+
+Cn=(1/n+1)(2n n)×n!=(2n)!/(n+1)!
+	 */
 	// Count number of bs tree created from a given number,
 		/**
 		 * 

@@ -47,9 +47,6 @@ public class MinimumCoinsToSum {
 				// if current coin value is less than cur_sum(i)
 				if(coins[j]<=i && min[i-coins[j]]+1< min[i]){
 					min[i] = min[i-coins[j]]+1 ;
-					if(i==11){
-						System.out.println("--"+min[i-coins[j]]);
-					}
 				}
 			}
 		}

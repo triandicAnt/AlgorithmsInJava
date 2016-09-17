@@ -1,5 +1,7 @@
 package dp;
 
+import java.util.Arrays;
+
 public class SubsetSumInArray {
 
 	public static void main(String[] args) {
@@ -8,7 +10,10 @@ public class SubsetSumInArray {
 		int set[] = {3, 34, 4, 12, 5, 2};
 		System.out.println(checkSubsetSum(set, 9, 6));
 		System.out.println(isSubsetSum(set, 9, 6));
-
+		
+		int a [] = {1,2,3,4,5,6};
+		int sum = 10;
+		allSubSet(a, 0, 0, sum, "");
 		
 
 	}
@@ -65,4 +70,21 @@ public class SubsetSumInArray {
 		return subSet[sum][n];
 	}
 	
+	/**
+	 * all subsets with a given sum
+	 * 
+	 */
+	
+	static void allSubSet(int []arr, int index,int cur,  int sum, String result){
+		if(arr.length < index || cur>sum)
+			return;
+		for(int i = index; i< arr.length; i++){
+			if(cur + arr[i] == sum){
+				System.out.println(result + " " + arr[i]);
+			}
+			else if(cur + arr[i]<sum){
+				allSubSet(arr, i+1, cur+arr[i], sum, result + " " + arr[i]);
+			}
+		}
+	}
 }

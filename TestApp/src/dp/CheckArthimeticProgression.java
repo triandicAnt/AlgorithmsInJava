@@ -13,7 +13,6 @@ public class CheckArthimeticProgression {
 		System.out.println(countAPInArray(set1));
 	    int set2[] = {1, 7, 10, 15, 27, 29};
 		System.out.println(countAPInArray(set2));
-	 
 	    int set3[] = {2, 4, 6, 8, 10};
 		System.out.println(countAPInArray(set3));
 
@@ -56,14 +55,15 @@ public class CheckArthimeticProgression {
 			while(i>=0 && k<n){
 				if(arr[i]+arr[k] == 2*arr[j]){
 					temp[i][j] = temp[j][k] + 1;
+					// update the max value
 					if(max<temp[i][j])
 						max = temp[i][j];
 					i--;
 					k++;
-				}
+				} // if less than increment k
 				else if(arr[i] + arr[k]<2*arr[j]){
 					k++;
-				}
+				}// else decrement i
 				else{
 					i--;
 				}

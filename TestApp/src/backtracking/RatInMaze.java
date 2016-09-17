@@ -39,6 +39,7 @@ public class RatInMaze {
 		
 		int m = maze.length;
 		int n = maze[0].length;
+		// if dest reached, return true
 		if(i == m-1 && j == n-1){
 			sol[i][j] = 1;
 //			return (maze[i][j] == 1);

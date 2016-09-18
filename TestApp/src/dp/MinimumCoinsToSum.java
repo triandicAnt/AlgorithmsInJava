@@ -21,7 +21,7 @@ public class MinimumCoinsToSum {
 		System.out.println(findMinCoins(coins, 1));
 		System.out.println(findMinCoins(coins, 2));
 		System.out.println(findMinCoins(coins, 3));
-		System.out.println(findMinCoins(coins, 11));
+		System.out.println(findMinCoins(coins, 7));
 
 
 	}

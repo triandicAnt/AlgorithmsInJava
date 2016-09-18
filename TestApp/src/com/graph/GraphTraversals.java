@@ -24,9 +24,17 @@ public class GraphTraversals {
 	 * @param <Integer>
 	 * @param args
 	 */
+	
 //	for DFS
+	/**
+	 * adjacency list is map with vertex as a key and all adjacent vertices in a list a value
+	 */
 	Map<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>> adj = new HashMap<GraphVertex<Object,Object>, LinkedList<GraphVertex<Object,Object>>>();
+	// create a stack
 	Stack<GraphVertex<Object,Object>> s = new Stack<>();
+	
+	// Topological sort stack
+	
 	Stack<Object> topoS = new Stack<>();
 	Boolean cycle = false;
 	int noOfComponentsInGraph;
@@ -36,31 +44,45 @@ public class GraphTraversals {
 
 	public static  void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		/**
+		 * Adjacency List -------------------------------
+			1: 3 5 6 9 
+			2: 3 4 7 
+			3: 1 2 4 7 9 
+			4: 2 3 
+			5: 1 7 
+			6: 1 
+			7: 2 3 5 
+			8: 10 
+			9: 1 3 
+			10:
+		 */
 		GraphTraversals g = new GraphTraversals();
 		g.createAdjList();
-		System.out.println("Adjacency List -------------------------------");
-		g.printGraph(g.adj);
-		System.out.println("DFS traversal: ");
-		g.dfs();
-		System.out.println("No. of components: "+ g.noOfComponentsInGraph);
-		g.setDefault(g.adj);
-		System.out.println("************************************************");
-		g.recursiveDFS();
-		System.out.println("Graph has cycle ? " + g.cycle);
-		/*GraphTraversals gt = new GraphTraversals();
-		gt.addToBfsList();
-		System.out.println("Adjacency List -------------------------------");
-		gt.printGraph();
+//		System.out.println("Adjacency List -------------------------------");
+//		g.printGraph(g.adj);
+//		System.out.println("DFS traversal: ");
+//		g.dfs();
+//		System.out.println("No. of components: "+ g.noOfComponentsInGraph);
+//		g.setDefault(g.adj);
+		//System.out.println("************************************************");
+//		g.recursiveDFS();
+//		System.out.println("Graph has cycle ? " + g.cycle);
+//		GraphTraversals gt = new GraphTraversals();
+//		gt.addToBfsList();
+//		System.out.println("Adjacency List -------------------------------");
+//		gt.printGraph(gt.adj);
 		// call bfs
-		System.out.println("BFS traversal: ");
-		gt.bfs();
-		gt.setDefault();*/
-		GraphTraversals got = new GraphTraversals();
-		got.createAGraph();
-		got.printGraph(g.adj);
-		got.recursiveDFS();
-		System.out.println("Graph has cycle ? " + got.cycle);
-		got.setDefault(got.adj);
+//		System.out.println("BFS traversal: ");
+//		gt.bfs();
+//		gt.setDefault(gt.adj);
+//		GraphTraversals got = new GraphTraversals();
+//		got.createAGraph();
+//		got.printGraph(g.adj);
+//		got.recursiveDFS();
+//		System.out.println("Graph has cycle ? " + got.cycle);
+//		got.setDefault(got.adj);
 
 	}
 	void createAGraph(){

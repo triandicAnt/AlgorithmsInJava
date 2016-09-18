@@ -61,6 +61,7 @@ public class QTest {
   pq.offer(1);
   pq.offer(3);
   pq.offer(4);
+  pq.poll();
   System.out.println(pq);
  }
   

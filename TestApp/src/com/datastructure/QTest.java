@@ -1,4 +1,5 @@
 package com.datastructure;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -34,10 +35,33 @@ public class QTest {
   map.put("D", 50); // "duplicate" value
 
   int [] a = new int [] {};
-  PriorityQueue<Integer> pq = new PriorityQueue<>();
-  pq.add(1);
-  pq.add(2);
-  pq.add(1);
+  
+  PriorityQueue<Integer> pq = new PriorityQueue<Integer>(new Comparator<Integer>(){
+	  @Override
+	// Max Heap
+	  /*public int compare(Integer i, Integer j){
+		  if(i>j)
+			  return -1;
+		  if(i<j)
+			  return 1;
+		  else 
+			  return 0;
+	  } */
+	// Min Heap
+	  public int compare(Integer i, Integer j){
+		  if(i>j)
+			  return 1;
+		  if(i<j)
+			  return -1;
+		  else 
+			  return 0;
+	  }
+  });
+  pq.offer(2);
+  pq.offer(1);
+  pq.offer(3);
+  pq.offer(4);
   System.out.println(pq);
  }
+  
 }

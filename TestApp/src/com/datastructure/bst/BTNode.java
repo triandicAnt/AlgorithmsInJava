@@ -12,6 +12,7 @@ public class BTNode{
 	BTNode left;
 	BTNode right;
 	BTNode parent;
+	int vd;
 	
 	BTNode(){
 		

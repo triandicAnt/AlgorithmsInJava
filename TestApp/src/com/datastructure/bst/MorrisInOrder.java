@@ -1,4 +1,4 @@
-package com.datastructure;
+package com.datastructure.bst;
 
 public class MorrisInOrder {
 

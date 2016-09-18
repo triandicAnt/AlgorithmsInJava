@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.datastructure;
+package com.datastructure.bst;
 
 /**
  * @author Sudhansu

@@ -1,4 +1,4 @@
-package com.datastructure;
+package com.datastructure.bst;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;

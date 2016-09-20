@@ -19,7 +19,7 @@ public class EditDistanceOfString {
 		if(n==0)
 			return m;
 		if(s1.charAt(m-1) == s2.charAt(n-1))
-			return countEditDistRecu(s1.substring(0,m-1), s2.substring(0,n-1), m-1, n-1);
+			return countEditDistRecu(s1, s2, m-1, n-1);
 		
 			return 1+ Math.min(Math.min(countEditDistRecu(s1, s2, m-1, n), countEditDistRecu(s1, s2, m, n-1)), countEditDistRecu(s1, s2, m-1, n-1));
 	}
@@ -43,8 +43,10 @@ public class EditDistanceOfString {
 		
 		for(int i = 0; i<=m; i++){
 			for(int j=0; j<=n; j++){
+				// if first string is empty.. insert all chars of other string
 				if(i==0)
 					temp[i][j] = j;
+				// if second string is empty, insert all char of other string
 				else if(j==0)
 					temp[i][j] = i;
 				//if i and j are same

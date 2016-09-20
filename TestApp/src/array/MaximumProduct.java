@@ -14,12 +14,12 @@ public class MaximumProduct {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int []a = new int []{2,3,10,11,5,25};
-		//printMaxProductPair(a);
-		//maxDifference(a);
+		int []a = new int []{2,3,30,11,5,25,1};
+		printMaxProductPair(a);
+		maxDifference(a);
 		//System.out.println(findMinDiff(a));
-		int [] b = new int []{3,2,-2,1,-4,9};
-		findLCS(b);
+//		int [] b = new int []{3,2,-2,1,-4,9};
+//		findLCS(b);
 
 	}
 	/**

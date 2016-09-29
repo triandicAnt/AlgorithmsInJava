@@ -83,39 +83,38 @@ java codes
        * │       Shape.java
        * │       TestClass1.java
        * │
-    ├───recursion
-    │       AllSubsetWithSum.java
-    │
-    ├───regex
-    │       AncestorTree.java
-    │       FamilyTree.java
-    │       MatcherDemo.java
-    │       RegexTestHarness.java
-    │       StringSplit.java
-    │       ValidateDemo.java
-    │
-    └───string
-            AllPermutation.java
-            AllUniqCharCheck.java
-            CountPalin.java
-            DigitToWord.java
-            Fibonacci.java
-            KMP.java
-            LCS.java
-            LexicographicRotation.java
-            LongestNonRepeatingSubstring.java
-            LongestPalindromicSubsequence.java
-            LongestPalindromicSubstring.java
-            LongestRepeatingString.java
-            MatchPattern.java
-            MinimumSplitForPalindrome.java
-            PrintNonOverlappingNums.java
-            RearrangeCharacters.java
-            StringAnagram.java
-            StringChain.java
-            StringInterleaving.java
-            StringIntersect.java
-            StringReverse.java
-            UtopianTree.java
-            WordBreakDP.java
+    * ├───recursion
+      * │       AllSubsetWithSum.java
+    * ├───regex
+      * │       AncestorTree.java
+      * │       FamilyTree.java
+      * │       MatcherDemo.java
+      * │       RegexTestHarness.java
+      * │       StringSplit.java
+      * │       ValidateDemo.java
+    * └───string
+      * │       AllPermutation.java
+      * │       AllUniqCharCheck.java
+      * │       CountPalin.java
+      * │       DigitToWord.java
+      * │       Fibonacci.java
+      * │       KMP.java
+      * │       LCS.java
+      * │       LexicographicRotation.java
+      * │       LongestNonRepeatingSubstring.java
+      * │       LongestPalindromicSubsequence.java
+      * │       LongestPalindromicSubstring.java
+      * │       LongestRepeatingString.java
+      * │       MatchPattern.java
+      * │       MinimumSplitForPalindrome.java
+      * │       PrintNonOverlappingNums.java
+      * │       RearrangeCharacters.java
+      * │       StringAnagram.java
+      * │       StringChain.java
+      * │       StringInterleaving.java
+      * │       StringIntersect.java
+      * │       StringReverse.java
+      * │       UtopianTree.java
+      * │       WordBreakDP.java
+
 

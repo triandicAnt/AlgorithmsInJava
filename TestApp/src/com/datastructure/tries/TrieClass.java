@@ -1,7 +1,6 @@
 package com.datastructure.tries;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class TrieClass {
 	
@@ -29,20 +28,26 @@ public class TrieClass {
 	static Trie insertString(String str, Trie root){
 		
 		Trie tempRoot = root;
+		// check for null ; if root is null then create root with first character of string
 		if(tempRoot == null){
 			String rest = str;
-			if(tempRoot == null)
-			{
+			if(tempRoot == null){
+				// create a root
 				tempRoot = new Trie(String.valueOf(str.charAt(0)));
+				// rest would be the substring from 1 character
 				rest = str.substring(1);
 			}
+			// create next node
 			Trie next = tempRoot;
-			int last = 1;
+			// for each characters in the rest string insert into trie
 			for(char c: rest.toCharArray()){
+				// get the children
 				HashMap<String, Trie> map = next.children;
+				// if children contains the character, set next node
 				if(map.containsKey(String.valueOf(c))){
 					next = map.get(String.valueOf(c));
 				}else{
+					// put the value in the children and then set the next node
 					map.put(String.valueOf(c), new Trie(String.valueOf(c)));
 					next = map.get(String.valueOf(c));
 				}
@@ -50,22 +55,33 @@ public class TrieClass {
 		}
 		// some characters are repeating
 		else{
+			// skip till the common characters and also skip in trie
 			int i = 0;
 			Trie next = tempRoot;
 			Trie current = tempRoot;
 			while(i<str.length() && next!=null){
-				System.out.println(next.name + "--" + String.valueOf(str.charAt(i)));
+				// check if the characters are same
 				if(next.name.equals(String.valueOf(str.charAt(i)))){
 					current = next;
 					i++;
 					HashMap<String, Trie> map = next.children; 
 					next = map.get(String.valueOf(str.charAt(i))); 
-					System.out.println("-----------" + next.name);
 				}else{
 					break;
 				}
 			}
-			System.out.println(next.name);
+			// we have found the current node in Trie
+			Trie next1 = current;
+			// do the same thing as for rest characters in the previous case
+			for(char c: str.substring(i).toCharArray()){
+				HashMap<String, Trie> map = next1.children;
+				if(map.containsKey(String.valueOf(c))){
+					next1 = map.get(String.valueOf(c));
+				}else{
+					map.put(String.valueOf(c), new Trie(String.valueOf(c)));
+					next1 = map.get(String.valueOf(c));
+				}
+			}
 		}
 		return tempRoot;
 	}

@@ -28,7 +28,7 @@ public class PossiblePathsInMatrix {
 	static int [][] findPaths(int [][] matrix){
 		int m = matrix.length;
 		int n = matrix[0].length;
-		int path [][] = new int [m][m];
+		int path [][] = new int [m][n];
 		// first row
 		for(int i=0;i<n;i++){
 			path[0][i] = 1;

@@ -20,47 +20,47 @@ public class BinaryTreeProblems extends BinaryTree {
 		int []a = new int [] {1, 7, 5, 50, 40, 10};
 		b.root = bp.constructBST(a);
 		//System.out.println(b.root.data);
-		//new BinaryTree().inOrder(b.root);
+		new BinaryTree().inOrder(b.root);
 		
-		BTNode root1 = new BTNode(10);
-		root1.left = new BTNode(-2);
-		root1.right = new BTNode(6);
-		root1.left.left = new BTNode(8);
-		root1.left.right = new BTNode(-4);
-		root1.right.left = new BTNode(7);
-		root1.right.right = new BTNode(5);
-		new BinaryTree().inOrder(root1);
-		System.out.println("");
-		//bp.toSumTree(root1);
-		bp.toSum(root1);
-		new BinaryTree().inOrder(root1);
-		
-		
-//		find level with max nodes
-		BinaryTree bTree = new BinaryTree();
-		BTNode root2;
-		
-        root2 = new BTNode(1);
-        root2.left = new BTNode(2);
-        root2.right = new BTNode(3);
-        root2.left.left = new BTNode(4);
-        root2.left.right = new BTNode(5);
-        root2.right.right = new BTNode(8);
-        root2.right.right.left = new BTNode(6);
-        root2.right.right.right = new BTNode(7);
-//        System.out.println();
-//        System.out.println(bp.findLevelWithMaxNodes(root2));
-//        System.out.println(bp.findLevelWithMaxNodes(root1));
-        
-        // remove all half nodes
-        BTNode root3 = new BTNode(2);
-        root3.left = new BTNode(7);
-        root3.right = new BTNode(5);
-        root3.left.right = new BTNode(6);
-        root3.left.right.left = new BTNode(1);
-        root3.left.right.right = new BTNode(11);
-        root3.right.right = new BTNode(9);
-        root3.right.right.left = new BTNode(3);
+//		BTNode root1 = new BTNode(10);
+//		root1.left = new BTNode(-2);
+//		root1.right = new BTNode(6);
+//		root1.left.left = new BTNode(8);
+//		root1.left.right = new BTNode(-4);
+//		root1.right.left = new BTNode(7);
+//		root1.right.right = new BTNode(5);
+//		new BinaryTree().inOrder(root1);
+//		System.out.println("");
+//		//bp.toSumTree(root1);
+//		bp.toSum(root1);
+//		new BinaryTree().inOrder(root1);
+//		
+//		
+////		find level with max nodes
+//		BinaryTree bTree = new BinaryTree();
+//		BTNode root2;
+//		
+//        root2 = new BTNode(1);
+//        root2.left = new BTNode(2);
+//        root2.right = new BTNode(3);
+//        root2.left.left = new BTNode(4);
+//        root2.left.right = new BTNode(5);
+//        root2.right.right = new BTNode(8);
+//        root2.right.right.left = new BTNode(6);
+//        root2.right.right.right = new BTNode(7);
+////        System.out.println();
+////        System.out.println(bp.findLevelWithMaxNodes(root2));
+////        System.out.println(bp.findLevelWithMaxNodes(root1));
+//        
+//        // remove all half nodes
+//        BTNode root3 = new BTNode(2);
+//        root3.left = new BTNode(7);
+//        root3.right = new BTNode(5);
+//        root3.left.right = new BTNode(6);
+//        root3.left.right.left = new BTNode(1);
+//        root3.left.right.right = new BTNode(11);
+//        root3.right.right = new BTNode(9);
+//        root3.right.right.left = new BTNode(3);
         
 //        bTree.inOrder(root3);
 //        System.out.println();

@@ -1,4 +1,5 @@
 package com.datastructure;
+import java.math.BigInteger;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -63,6 +64,49 @@ public class QTest {
   pq.offer(4);
   pq.poll();
   System.out.println(pq);
- }
   
+  int x = 3;
+  int i = 1;
+  for( i =1 ; i*(i+1)/2<=x; i++){
+	  if(i*(i+1) > 2*x){
+		  break;
+	  }
+  }
+//  System.out.println(i-1); 
+  
+  System.out.println('a'>'b');
+  
+ // long[] l = {2,5,8,3};
+  
+//  BigInteger bd = new BigInteger("922337203685477582012312321");
+//  System.out.println(bd.multiply(new BigInteger("15")));
+//  System.out.println(bd); 
+  
+  long l = 2;
+  
+  
+  long low = 0;
+  long high = l;
+  
+  while(low<=high){
+	  long mid =(long) Math.ceil((low+high)/2);
+	  if(mid*(mid+1)/2 == l)
+		  System.out.println(mid);
+	  else if(mid*(mid+1)/2<l){
+		  low = mid;
+	  }else{
+		  high = mid;
+	  }
+
+  }
+  
+ }
+
+ 
+ 
 }
+
+
+
+
+

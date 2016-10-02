@@ -6,13 +6,13 @@ public class MorrisInOrder {
 		// TODO Auto-generated method stub
 		BTNode root = new BTNode(0);
 		root.left = new BTNode(2);
-		root.right = new BTNode(2);
+		root.right = new BTNode(7);
 		root.left.left = new BTNode(3);
-		root.left.right = new BTNode(4);
+		root.left.right = new BTNode(8);
 		root.right.left = new BTNode(4);
 		root.right.right = new BTNode(3);
 		root.left.left.left = new BTNode(5);
-		root.right.right.right = new BTNode(5);
+		root.right.right.right = new BTNode(8);
 		morrisInOrder(root);
 
 

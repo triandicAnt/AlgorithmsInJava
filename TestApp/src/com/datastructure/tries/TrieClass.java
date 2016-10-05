@@ -7,8 +7,6 @@ public class TrieClass {
 	public static void main(String[] args) {
 		
 		Trie root = null;
-		
-
 		/**
 		 * acdf
 		 * acfe
@@ -24,11 +22,18 @@ public class TrieClass {
 		root = insertString("acfe", root);
 		System.out.println(root.toString());
 	}
-	
+	/**
+	 * insert strings in the Trie
+	 * Check the last node's "isEnd" value, it should be true for last node and for all other nodes, it should be true.
+	 * @param str
+	 * @param root
+	 * @return
+	 */
 	static Trie insertString(String str, Trie root){
 		
 		Trie tempRoot = root;
 		// check for null ; if root is null then create root with first character of string
+		// if there is only one character in the string then set the isEnd of the last node as "true"
 		if(tempRoot == null){
 			String rest = str;
 			if(tempRoot == null){

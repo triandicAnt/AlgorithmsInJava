@@ -19,7 +19,12 @@ public class MedianOfSortedArray {
 //		int []a5 = {1,2,5};
 //		int []a6 = {3,4,6};
 //		System.out.println(getMedianOfSortedArray(a5, a6));
-
+		
+		int x = -123;
+		String s = ""+x;
+		System.out.println(s);
+		System.out.println(Integer.valueOf(s));
+		
 		
 
 	}

@@ -10,6 +10,10 @@ public class LongestNonRepeatingSubstring
 {
  	public static void main(String[] args) {
 	    findLongestSub("stackoverflow");
+//	    System.out.println("abc".indexOf('d'));
+//	    System.out.println("stackoverflow".substring("stackoverflow".lastIndexOf('o')));
+	    System.out.println(findLengthOfLongest("stackoverflow"));
+	    System.out.println(findLengthOfLongest("dvdf"));
 	}
 	
 	public static void findLongestSub(String str){
@@ -18,8 +22,12 @@ public class LongestNonRepeatingSubstring
 	    String l = "";
 	    String o = "";
 	    for(char c: charArray){
+	    	
 	        if(hs.contains(c)){
-	            l = "";
+		        int first = l.indexOf(c);
+		        l = l.substring(first);
+
+	            //l = "";
 	            hs.clear();
 	        }
 	        l += c;
@@ -29,21 +37,23 @@ public class LongestNonRepeatingSubstring
 	        hs.add(new Character(c));
 	    }
 	    System.out.println(o);
-	    ArrayList<String[]> arr = new ArrayList<>();
-	    arr.add(new String [] {"a","dd","sddf"});
-	    arr.add(new String [] {"c","bd","bddf"});
-	    arr.add(new String [] {"b","cd","addf"});
-	    
-	    Collections.sort(arr,new Comparator<String[]>() {
-            public int compare(String[] strings, String[] otherStrings) {
-                return strings[1].compareTo(otherStrings[1]);
-            }
-        });
-	    for (String[] sa : arr) {
-            System.out.println(Arrays.toString(sa));
-        }
+	 
 
 	}
 	
+	public static int findLengthOfLongest(String s){
+		HashSet<Character> set = new HashSet<Character>();
+		int count=0, i=0 ,j=0;
+		int n = s.length();
+		while(i<n && j<n){
+			if(!set.contains(s.charAt(j))){
+				set.add(s.charAt(j++));
+				count = Math.max(count, j-i);
+			}else{
+				set.remove(s.charAt(i++));
+			}
+		}
+		return count;
+	}
+	
 }
-// this will become its own file too (and these can be in any order)

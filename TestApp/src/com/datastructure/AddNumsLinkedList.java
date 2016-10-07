@@ -40,6 +40,10 @@ public class AddNumsLinkedList {
 		printLinkedList(head4);
 		System.out.println();
 		printLinkedList(addList(head3, head4));
+		LinkedList head5 = new LinkedList(5);
+		LinkedList head6 = new LinkedList(5);
+		System.out.println();
+		printLinkedList(addList(head5, head6));
 		
 
 	}
@@ -101,6 +105,9 @@ public class AddNumsLinkedList {
 				temp = temp.next;
 				temp1= temp2.next;
 			}
+		}
+		if(carry!=0){
+		    temp.next = new LinkedList(carry);
 		}
 		return head;
 	}

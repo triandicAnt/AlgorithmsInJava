@@ -4,7 +4,8 @@ public class ReverseInteger {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(reverseString("4321"));
+		System.out.println(reverseString("010"));
+		System.out.println(Integer.parseInt("010"));
 
 	}
     public static int reverse(int x) {

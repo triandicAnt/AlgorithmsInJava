@@ -24,7 +24,7 @@ public class ValidateDemo {
 
 		for (String ssn : input) {
 			if (ssn.matches("^(\\d{4}-?\\d{1,}-?\\d{4})$")) {
-				//System.out.println("Found good SSN: " + ssn);
+				System.out.println("Found good SSN: " + ssn);
 			}
 		}
 		String s = "I have a dog and a cat.";

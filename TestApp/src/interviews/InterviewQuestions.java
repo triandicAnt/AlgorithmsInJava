@@ -1,4 +1,4 @@
-package random;
+package interviews;
 import java.util.HashMap;
 
 

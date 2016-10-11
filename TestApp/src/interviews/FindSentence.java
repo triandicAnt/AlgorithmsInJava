@@ -1,7 +1,9 @@
 package interviews;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.regex.Pattern;
 
@@ -9,9 +11,9 @@ public class FindSentence {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Computer Science".toLowerCase());
-		String str = "Computer Science Engineering|Computer Science | Computer-Science-Engineering";
-		
+//		String str = "Computer Science Engineering|Computer Science | Computer-Science-Engineering";
+		String str = "IBM cognitive computing|IBM \"cognitive\" computing is a revolution| ibm cognitive  computing|'IBM Cognitive Computing' is a revolution?";
+		//String str = "\"Computer Science Department\"|Computer-Science-Department|the \"computer science department\"";
 		PriorityQueue<Sentence> pq =  new PriorityQueue<Sentence>(new Comparator<Sentence>(){
 			  @Override
 				// Min Heap
@@ -27,28 +29,44 @@ public class FindSentence {
 		
 //		System.out.println(Arrays.toString("computer-science-engineering".split("-|\\s")));
 		String [] stringArray = str.split("\\|");
-		System.out.println(Arrays.toString(stringArray));
 		for(String a: stringArray){
 			pq.offer(new Sentence(a));			
 		}
 		
 		System.out.println(pq);
-		
 		// Merge the sentences in the priority queue
 		while(pq.size() >=1){
 			Sentence s1 = pq.poll();
 			Sentence s2 = pq.poll();
-			if(containsString(s1.sentence, s2.sentence)){
-				pq.offer(s2);
-			}else{
-				pq.offer(s2);
+//			System.out.println(s1);
+//			System.out.println(s2);
+			if(s1!=null && s2!=null){
+				if(containsString(s1.sentence, s2.sentence)){
+					pq.offer(s2);
+				}else{
+					pq.offer(s2);
+					break;
+				}
+			}
+		}
+		System.out.println(pq);
+		List<Sentence> list = new ArrayList<>();
+		for(Sentence s: pq){
+//			System.out.println(s.sentence);
+			list.add(s);
+		}
+		boolean flag = true;
+		for(int i=1;i<list.size();i++){
+			if(list.get(i-1).sentence.equals(list.get(i).sentence)){
+				flag = false;
 				break;
 			}
 		}
-		
-		System.out.println(containsString("computer science engineering", "computer-science-engineering"));
-		System.out.println(pq);
-
+		if(flag == false){
+			System.out.println(list.get(0).old);
+		}else{
+			System.out.println(pq);
+		}
 	}
 	
 //	"Computer Science Engineering|Computer Science | Computer-Science-Engineering"
@@ -65,7 +83,11 @@ class Sentence{
 	String old;
 	public Sentence(String sentence){
 		this.old = sentence;
-		this.sentence = sentence.toLowerCase().trim();
+		//this.sentence = sentence.toLowerCase().trim();
+		String str = sentence.toLowerCase().replaceAll("[^A-Za-z0-9 ]", " ").replaceAll("\\s{2,}", " ").trim();
+//		System.out.println(str);
+		this.sentence = str;
+
 		String [] strArr = this.sentence.split("[\\s-]+");
 //		System.out.println(Arrays.toString(strArr));
 		this.wordCount = strArr.length;

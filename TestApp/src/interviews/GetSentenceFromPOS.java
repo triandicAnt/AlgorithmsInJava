@@ -7,11 +7,11 @@ public class GetSentenceFromPOS {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(testNLP("(NP (NP (DT a) (NN boy)) (VP (VBG eating) (NP (NNS sausages))))"));
-		System.out.println(extractSentence("(NP (NP (DT a) (NN boy)) (VP (VBG eating) (NP (NNS sausages))))"));
-		System.out.println(testNLP("(S (NP (NNP James)) (VP (VBZ is) (NP (NP (DT a) (NN boy)) (VP (VBG eating) (NP (NNS sausages))))))"));
-		System.out.println(extractSentence("(S (NP (NNP James)) (VP (VBZ is) (NP (NP (DT a) (NN boy)) (VP (VBG eating) (NP (NNS sausages))))))"));
-
+//		System.out.println(testNLP("(NP (NP (DT a) (NN boy)) (VP (VBG eating) (NP (NNS sausages))))"));
+//		System.out.println(extractSentence("(NP (NP (DT a) (NN boy)) (VP (VBG eating) (NP (NNS sausages))))"));
+//		System.out.println(testNLP("(S (NP (NNP James)) (VP (VBZ is) (NP (NP (DT a) (NN boy)) (VP (VBG eating) (NP (NNS sausages))))))"));
+//		System.out.println(extractSentence("(S (NP (NNP James)) (VP (VBZ is) (NP (NP (DT a) (NN boy)) (VP (VBG eating) (NP (NNS sausages))))))"));
+		System.out.println(extractSentence("(NNS sausages)"));
 
 	}
 	public static String testNLP(String str){

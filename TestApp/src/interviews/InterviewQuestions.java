@@ -2,8 +2,8 @@ package interviews;
 import java.util.HashMap;
 
 
-import com.datastructure.LinkedList;
-import com.datastructure.MyLinkedList;
+import com.datastructure.linkedlist.LinkedList;
+import com.datastructure.linkedlist.MyLinkedList;
 public class InterviewQuestions extends MyLinkedList{
 
 	/**

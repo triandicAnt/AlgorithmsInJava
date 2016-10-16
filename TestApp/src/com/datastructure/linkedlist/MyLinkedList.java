@@ -1,7 +1,8 @@
 /**
  * 
  */
-package com.datastructure;
+package com.datastructure.linkedlist;
+
 
 
 

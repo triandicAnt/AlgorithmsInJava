@@ -1,4 +1,5 @@
-package com.datastructure;
+package com.datastructure.linkedlist;
+
 
 public class AddNumsLinkedList {
 

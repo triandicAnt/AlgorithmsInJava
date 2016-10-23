@@ -21,7 +21,6 @@ public class MissingNumber {
 	public static int missingNumber(int[] nums) {
         int x = 0;
         int y = 0;
-        int z = 0;
         for(int a : nums){
             x = x^a;
         }

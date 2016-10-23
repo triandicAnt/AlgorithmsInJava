@@ -5,7 +5,7 @@ package leetcode;
 
 /**
  * @author Sudhansu
- *
+ * https://leetcode.com/problems/missing-number/
  */
 public class MissingNumber {
 

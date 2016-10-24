@@ -8,6 +8,9 @@ package leetcode;
  *
  */
 public class BulbSwitcher {
+	public static void main(String[] args) {
+		System.out.println(2&3);
+	}
 	   public int bulbSwitch(int n) {
 		   /*  if(n==0)
 		         return 0;

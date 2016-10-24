@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 /**
  * @author Sudhansu
- *
+ * https://leetcode.com/problems/maximum-product-of-word-lengths/
  */
 public class MaxProductWord {
 

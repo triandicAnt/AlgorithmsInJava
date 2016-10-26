@@ -44,29 +44,22 @@ public class OddEvenList {
 	        
 	        while(cur!=null){
 	        	
-	        	System.out.println(cur + "++++++=====");
 	        	// set the off list
 	        	
 	            oddCur.next = cur;
 	            oddCur = oddCur.next;
 	            
 	            // set the even list 
-	            System.out.println(cur.val + " " + evenCur.val );
 	            evenCur.next = cur.next;
-	            System.out.println(evenCur.val + "----");
 	            evenCur = evenCur.next;
-	            System.out.println(evenCur + "+++");
-	            System.out.println(cur.next + "***");
 	           // cur = cur.next;
 	            if(cur.next!=null)
 	              cur = cur.next.next;
 	            else{
 	            	cur = cur.next;
-	            	System.out.println("Hallelujah");
 	            }
 	        }
 	       
-	        System.out.println("----" + oddCur.val);
 	        oddCur.next = null;
 	        printList(even);
 	        printList(odd);

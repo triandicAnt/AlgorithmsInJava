@@ -5,9 +5,9 @@ public class AllSubsetWithSum {
 	public static void main(String[] args) {
 		int a [] = {1,2,3,4,5,6};
 		int sum = 10;
-//		allSubSet(a, 0, 0, sum, "");
+		allSubSet(a, 0, 0, sum, "");
 		printAll(4, 3, "");
-//		findAllSubsets(a, 0, 0, sum, "");
+		//findAllSubsets(a, 0, 0, sum, "");
 		
 	}
 

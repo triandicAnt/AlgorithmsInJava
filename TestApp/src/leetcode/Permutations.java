@@ -14,6 +14,7 @@ public class Permutations {
 
 	/**
 	 * @param args
+	 * Failing incase of a negative number
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

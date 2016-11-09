@@ -10,12 +10,16 @@ package interviews;
  * 0, 5, 9, out
  */
 import java.io.*;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 public class ArrayHopper {
     public static void main(String args[] ) throws Exception {
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
-        BufferedReader br = null;
+      
+    	
+    	/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+       /*
+    	BufferedReader br = null;
         List<Integer> list = new ArrayList<>();
         try {
             br = new BufferedReader(new InputStreamReader(System.in));
@@ -42,6 +46,9 @@ public class ArrayHopper {
         } catch (IOException e) {
             e.printStackTrace();
         } 
+        */
+    	int arr[] = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
+    	System.out.println(arrayHopper(arr));
     }
     
     public static ArrayList<String> findHops(List<Integer> array) {
@@ -72,4 +79,22 @@ public class ArrayHopper {
 		else
 			return null;
 	}
+    
+    public static int arrayHopper(int []a){
+    	if(a.length<=0 || a[0]==0)
+    		return Integer.MIN_VALUE;
+    	int temp [] = new int [a.length];
+    	for(int i = 1;i<a.length; i++){
+    		temp[i] = Integer.MAX_VALUE;
+    		for(int j = 0; j<i;j++){
+    			if(i<=j+a[j] && temp[j]!=Integer.MAX_VALUE){
+    				temp[i] = Math.min(temp[j]+1, temp[i]);
+    				break;
+    			}
+    		}
+    	}
+		System.out.println(Arrays.toString(temp));
+
+		return temp[a.length-1];
+    }
 }

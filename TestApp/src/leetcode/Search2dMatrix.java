@@ -12,11 +12,13 @@ public class Search2dMatrix {
 	/**
 	 * @param args
 	 */
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int [][] a = {{1,1}};
 		
 		System.out.println(searchMatrix(a, 2));
+		System.out.println(Integer.MIN_VALUE);
 
 	}
 	  public static boolean searchMatrix(int[][] matrix, int target) {

@@ -16,16 +16,16 @@ public class RootToLeafSumBT {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//		BTNode root = new BTNode(1);
-//		root.left = new BTNode(2);
-//		root.right = new BTNode(3);
-//		root.left.left = new BTNode(4);
-//		root.left.right = new BTNode(5);
-//		root.left.right.left = new BTNode(8);
-//		root.right.left = new BTNode(6);
-//		root.right.right = new BTNode(7);
-//		root.right.right.left = new BTNode(10);
-//		root.right.left.right = new BTNode(9);
+		BTNode root = new BTNode(1);
+		root.left = new BTNode(2);
+		root.right = new BTNode(3);
+		root.left.left = new BTNode(4);
+		root.left.right = new BTNode(5);
+		root.left.right.left = new BTNode(8);
+		root.right.left = new BTNode(6);
+		root.right.right = new BTNode(7);
+		root.right.right.left = new BTNode(10);
+		root.right.left.right = new BTNode(9);
 
 //		System.out.println(hasPathSumTillRoot(root, 17));
 //		System.out.println(hasPathSumTillRoot(root, 13));
@@ -43,25 +43,25 @@ public class RootToLeafSumBT {
 //		System.out.println(hasPathSumBeforeRoot(root, 1)); //F
 //		System.out.println(hasPathSumBeforeRoot(root, 14)); //F
 		
-//		int [] path = new int [100]; 
-//		printAllPathSum(root, 0, path);
+		int [] path = new int [100]; 
+		printAllPathSum(root, 0, path);
 		
-		BTNode root = new BTNode(3);
-		root.left = new BTNode(-5);
-		root.left.left = new BTNode(2);
-		root.left.right = new BTNode(4);
-		root.left.right.left = new BTNode(8);
-		root.left.right.left.left = new BTNode(1);
-		root.left.right.left.right = new BTNode(19);
-		root.left.right.right = new BTNode(11);
-		root.left.right.right.right = new BTNode(18);
-		
-		root.right = new BTNode(0);
-		root.right.left = new BTNode(-4);
-		root.right.right = new BTNode(7);
-		root.right.right.left = new BTNode(9);
-		int [] path = new int [height(root)];
-		printPathSumAnywhere(root, 7, 0, path);
+//		BTNode root = new BTNode(3);
+//		root.left = new BTNode(-5);
+//		root.left.left = new BTNode(2);
+//		root.left.right = new BTNode(4);
+//		root.left.right.left = new BTNode(8);
+//		root.left.right.left.left = new BTNode(1);
+//		root.left.right.left.right = new BTNode(19);
+//		root.left.right.right = new BTNode(11);
+//		root.left.right.right.right = new BTNode(18);
+//		
+//		root.right = new BTNode(0);
+//		root.right.left = new BTNode(-4);
+//		root.right.right = new BTNode(7);
+//		root.right.right.left = new BTNode(9);
+//		int [] path = new int [height(root)];
+//		printPathSumAnywhere(root, 7, 0, path);
 
 	}
 	

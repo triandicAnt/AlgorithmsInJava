@@ -4,6 +4,7 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -34,5 +35,23 @@ public class SubsetII {
 		        //System.out.println(list);
 		        return list;
 		        
+	    }
+	  public List<List<Integer>> subsetsWithDup1(int[] nums) {
+	       Arrays.sort(nums);
+	       List<List<Integer>> list = new ArrayList<>();
+	      // list.add(new ArrayList<Integer>());
+	       dfs(nums,0,list,new ArrayList<Integer>());
+	       return list;
+	    }
+	    void dfs(int [] nums, int index, List<List<Integer>> list, List<Integer> temp){
+	        if(index<=nums.length)
+	            list.add(new ArrayList<>(temp));
+	        for(int i=index;i<nums.length;i++){
+	            if(i>index && nums[i] == nums[i-1])
+	                continue;
+	            temp.add(nums[i]);
+	            dfs(nums,i+1,list,temp);
+	            temp.remove(temp.size()-1);
+	        }
 	    }
 }

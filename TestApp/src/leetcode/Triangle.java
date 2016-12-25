@@ -1,3 +1,7 @@
+package leetcode;
+
+import java.util.List;
+
 public class Triangle {
     public int minimumTotal(List<List<Integer>> triangle) {
         if(triangle==null || triangle.size()==0)

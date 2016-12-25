@@ -1,3 +1,7 @@
+package leetcode;
+
+import java.util.Arrays;
+
 public class OnesAndZeros {
     public int findMaxForm(String[] strs, int m, int n) {
     //  Arrays.sort(strs,new Comparator<String>()

@@ -1,3 +1,5 @@
+package leetcode;
+
 public class BitwiseAND {
     public int rangeBitwiseAnd(int m, int n) {
        /*  int x =m;

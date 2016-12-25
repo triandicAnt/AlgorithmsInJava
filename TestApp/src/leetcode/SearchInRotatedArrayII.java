@@ -1,3 +1,5 @@
+package leetcode;
+
 public class SearchInRotatedArrayII {
     public boolean search(int[] nums, int target) {
         return searchTarget(nums,0,nums.length-1,target);

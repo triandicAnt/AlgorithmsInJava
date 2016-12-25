@@ -1,3 +1,5 @@
+package leetcode;
+
 public class SuperPow {
     public int superPow(int a, int[] b) {
         int n = b.length-1;

@@ -1,3 +1,5 @@
+package leetcode;
+
 public class HouseRobberI {
     /*public int rob(int[] nums) {
          if(nums.length<=0)

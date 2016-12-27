@@ -1,3 +1,5 @@
+package leetcode;
+
 public class UniquePathsI {
     public int uniquePaths(int m, int n) {
         //return findPaths(m-1,n-1,0,0);

@@ -1,3 +1,9 @@
+package leetcode;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class CombinationSumII {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         Arrays.sort(candidates);
@@ -5,7 +11,7 @@ public class CombinationSumII {
         if(candidates.length<=0)
             return list;
         long millis = System.currentTimeMillis() % 1000;
-        dfs(candidates,0,target,0,list,new ArrayList<>());
+        dfs(candidates,0,target,0,list,new ArrayList<Integer>());
         long millis1 = System.currentTimeMillis() % 1000;
         System.out.println(millis1-millis);
 

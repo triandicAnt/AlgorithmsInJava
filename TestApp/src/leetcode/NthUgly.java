@@ -1,3 +1,7 @@
+package leetcode;
+
+import java.util.Arrays;
+
 public class NthUgly {
     public int nthUglyNumber(int n) {
         int u = 1;

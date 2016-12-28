@@ -2,7 +2,7 @@
 java codes
 
 ```
-src
+.
 ├── array
 │   ├── ArrayProblems.java
 │   ├── CountComp.java
@@ -56,14 +56,16 @@ src
 │   │   └── tries
 │   │       ├── TrieClass.java
 │   │       └── Trie.java
-│   └── graph
-│       ├── CountSCC.java
-│       ├── DisjointSet.java
-│       ├── Graph.java
-│       ├── GraphTraversals.java
-│       ├── GraphVertex.java
-│       ├── StronglyConnectedComponents.java
-│       └── TopologicalSort.java
+│   ├── graph
+│   │   ├── CountSCC.java
+│   │   ├── DisjointSet.java
+│   │   ├── Graph.java
+│   │   ├── GraphTraversals.java
+│   │   ├── GraphVertex.java
+│   │   ├── StronglyConnectedComponents.java
+│   │   └── TopologicalSort.java
+│   └── thread
+│       └── ProducerConsumer.java
 ├── dp
 │   ├── CheckArthimeticProgression.java
 │   ├── EditDistanceOfString.java
@@ -81,55 +83,114 @@ src
 ├── leetcode
 │   ├── Atoi.java
 │   ├── BestTimeToBuySellStock.java
+│   ├── BinaryTreeZigZag.java
+│   ├── BitwiseAND.java
 │   ├── BulbSwitcher.java
 │   ├── BuySellStockCoolDown.java
+│   ├── CheckTriplets.java
 │   ├── CombinationSumIII.java
+│   ├── CombinationSumII.java
+│   ├── CombinationSum.java
+│   ├── ConstructInPost.java
+│   ├── ConstructTreeInPre.java
 │   ├── ContainerWithMostWater.java
 │   ├── CountArithmeticP.java
 │   ├── CountBits.java
 │   ├── CountUniqueDigitNumber.java
+│   ├── CourseSchedule1.java
+│   ├── DeleteNode.java
+│   ├── DetectCcleLinkedList.java
+│   ├── EliminationGame.java
+│   ├── FindMaxXorInArray.java
 │   ├── FindMin.java
+│   ├── FindPeak.java
+│   ├── FlattenBST.java
 │   ├── FourSum.java
 │   ├── GrayCode.java
+│   ├── GroupAnagram.java
+│   ├── GuessNumberII.java
 │   ├── HouseRobberIII.java
+│   ├── HouseRobberII.java
+│   ├── HouseRobberI.java
 │   ├── InOrderTraversal.java
+│   ├── InsertionSortLinkedList.java
 │   ├── IntegerBreak.java
 │   ├── IsSubsequence.java
 │   ├── KthLargestElement.java
 │   ├── KthSmallestBST.java
 │   ├── KthSmallestInMatrix.java
+│   ├── LargestDivisibleSubset.java
+│   ├── LengthOfLIS.java
 │   ├── LinkedListRandomNode.java
 │   ├── ListNode.java
+│   ├── ListNodePartition.java
+│   ├── LongestAbsolutePath.java
 │   ├── LongestCommonPrefix.java
 │   ├── LongestNonRepeatingSubstring.java
 │   ├── LongestPalindromicSubstring.java
+│   ├── LongestSubstringWithKRepeat.java
 │   ├── MaxProductWord.java
 │   ├── MaxSumSubArray.java
 │   ├── MedianOfSortedArrays.java
 │   ├── MergeKLinkedList.java
+│   ├── MinimumPathSumGrid.java
 │   ├── MissingNumber.java
+│   ├── NextRightPointer.java
+│   ├── NthUgly.java
+│   ├── NumberOfIslands.java
 │   ├── OddEvenList.java
+│   ├── OnesAndZeros.java
+│   ├── PalindromePartition.java
 │   ├── PalindromicNumber.java
+│   ├── PartitionEqualSubset.java
+│   ├── PathSumII.java
+│   ├── PerfectSquare.java
+│   ├── PermutationII.java
 │   ├── Permutations.java
 │   ├── PhoneLettersCombination.java
 │   ├── PreOrderTraversal.java
 │   ├── ProdutExceptItself.java
+│   ├── RandomPick.java
+│   ├── RemoveDuplicateSortedII.java
 │   ├── ReverseInteger.java
+│   ├── RightViewBT.java
+│   ├── RotateMatrix.java
+│   ├── Search2dMatrix.java
+│   ├── Search2DMatrix.java
+│   ├── SearchForARange.java
+│   ├── SearchInRotatedArrayII.java
+│   ├── SearchInRotatedArray.java
 │   ├── SearchInsert.java
+│   ├── SetMatrixZero.java
 │   ├── SingleNumberIII.java
 │   ├── SingleNumberII.java
+│   ├── SortColors.java
 │   ├── SortedArrayToBST.java
+│   ├── SortedListToBST.java
+│   ├── SpiralMatrixII.java
+│   ├── SubsetII.java
+│   ├── Subsets.java
 │   ├── SumOfLinkedList.java
+│   ├── SumRootToLeafNode.java
+│   ├── SuperPow.java
+│   ├── SuperUgly.java
 │   ├── ThreeSumClosest.java
 │   ├── ThreeSumZero.java
 │   ├── TopKFrequentElements.java
 │   ├── TreeNode.java
+│   ├── Triangle.java
 │   ├── TwoSum.java
 │   ├── TwoSumSorted.java
-│   └── UniquePaths.java
+│   ├── UniqueBinaryTreesII.java
+│   ├── UniquePathII.java
+│   ├── UniquePathsI.java
+│   ├── UniquePaths.java
+│   ├── ValidPerfectSquare.java
+│   └── WiggleSubsequence.java
 ├── random
 │   ├── AddSubtractNumbers.java
 │   ├── Bucket.java
+│   ├── ClassA.java
 │   ├── CommonElements.java
 │   ├── Fibonacci.java
 │   ├── FindOnes.java
@@ -178,5 +239,5 @@ src
     ├── UtopianTree.java
     └── WordBreakDP.java
 
-16 directories, 158 files
+17 directories, 218 files
 ```

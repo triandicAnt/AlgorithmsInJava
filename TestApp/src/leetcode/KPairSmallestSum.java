@@ -1,3 +1,8 @@
+package leetcode;
+
+import java.util.List;
+import java.util.PriorityQueue;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -6,70 +11,90 @@
  *     ListNode(int x) { val = x; }
  * }
  */
-public class Solution {
-    public ListNode KPairSmallestSum(ListNode head, int m, int n) {
-        if(head==null || m==n)
-            return head;
-        // create a dummy node
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        ListNode prev =dummy;
-        int i = 1;
-        while(i<m){
-            prev = prev.next;
-            i++;
-        }
-        ListNode curr = prev.next;
-        ListNode then = curr.next;
-        
-        for(int j=0;j<n-m;j++){
-            curr.next = then.next;
-            then.next = prev.next;
-            prev.next = then;
-            then = curr.next;
-        }
-        return dummy.next;
-            
-        // int k = n-m;
-        // int x = m;
-        // ListNode temp = head;
-        // ListNode prev = head;
-        // ListNode next = head;
-        // int count = 0;
-        // while(x>1){
-        //     prev = temp;
-        //     next = temp;
-        //     temp = temp.next;
-        //     x--;
-        // }
-        // ListNode prevPtr = prev;
-        // prev = null; 
-        //  // reverse K nodes from here
-        // while(temp!=null && count<=k){
-        //     next = temp.next;
-        //     temp.next = prev;
-        //     prev = temp;
-        //     temp = next;
-        //     count++;
-        // }
-        // //System.out.println(prev.val + "  "+ temp.val);
-        // //prevPtr.next = prev;
-        // //temp.next = next;
-        // return head;
-        
-    }
-    public static ListNode reverseList(ListNode head){
-        ListNode prev = null;
-        ListNode cur = head;
-        ListNode next = cur.next;
-        while(cur.next!=null){
-            cur.next = prev;
-            prev = cur;
-            cur = next;
-            next = cur.next;
-        }
-        cur.next = prev;
-        prev = cur;
-        return prev;
-    }
-}
+public class KPairSmallestSum {
+	 public List<int[]> kSmallestPairs(int[] Numbs1, int[] Numbs2, int k) {
+	       /* int m = Numbs1.length;
+	        int n = Numbs2.length;
+	        List<int[]> list = new ArrayList<>();
+	        if(m==0||n==0){
+	            return list;
+	        }
+	        if(m*n<k){
+	            //return all pair
+	            for(int a:Numbs1){
+	                for(int b:Numbs2){
+	                    int []arr = new int [2];
+	                    arr[0] = a;
+	                    arr[1] = b;
+	                   // Arrays.sort(arr);
+	                    list.add(arr);
+	                }
+	            }
+	            return list;
+	        }
+	        PriorityQueue<Numb> pq = new PriorityQueue<Numb>(new Comparator<Numb>(){
+	            @Override
+	            public int compare(Numb x, Numb y){
+	                if(x.sum>y.sum)
+	                    return 1;
+	                else if(x.sum<y.sum)
+	                    return -1;
+	                else
+	                    return 0;
+	            }
+	        });
+	        
+	        int i=0;
+	        int j=0;
+	        if(Numbs1[i]>Numbs2[j]){
+	            for(int a:Numbs1)
+	                pq.offer(new Numb(Numbs2[j], a));
+	            j++;
+	        }else if(Numbs1[i]<=Numbs2[j]){
+	            for(int a:Numbs2)
+	                pq.offer(new Numb(Numbs1[i], a));
+	            i++;
+	        }
+	        
+	        while(k>0 && pq.size()>0){
+	            int[] p = pq.poll().pair;
+	            //Arrays.sort(p);
+	            list.add(p);
+	            k--;
+	            if(i>0 && i<m){
+	                for(int a:Numbs2)
+	                    pq.offer(new Numb(Numbs1[i], a));
+	                i++;
+	            }else if(j>0 && j<n){
+	                for(int a:Numbs1)
+	                    pq.offer(new Numb(Numbs2[j], a));
+	                j++;
+	            }
+	        }
+	        return list; */
+	        
+//	        PriorityQueue<int[]> que = new PriorityQueue<>((a,b)->a[0]+a[1]-b[0]-b[1]);
+//	        List<int[]> res = new ArrayList<>();
+//	        if(Numbs1.length==0 || Numbs2.length==0 || k==0) return res;
+//	        for(int i=0; i<Numbs1.length && i<k; i++) que.offer(new int[]{Numbs1[i], Numbs2[0], 0});
+//	        while(k-- > 0 && !que.isEmpty()){
+//	            int[] cur = que.poll();
+//	            res.add(new int[]{cur[0], cur[1]});
+//	            if(cur[2] == Numbs2.length-1) continue;
+//	            que.offer(new int[]{cur[0],Numbs2[cur[2]+1], cur[2]+1});
+//	        }
+//	        return res;
+	    return null;
+	        
+	    }
+	}
+	class Numb{
+	    int sum;
+	    int []pair;
+	    Numb(int x, int y){
+	        this.sum = x+y;
+	        pair = new int [2];
+	        pair[0] = x;
+	        pair[1] = y;
+	    }
+	}

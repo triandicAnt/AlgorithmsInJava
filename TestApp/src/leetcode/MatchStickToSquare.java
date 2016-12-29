@@ -1,3 +1,7 @@
+package leetcode;
+
+import java.util.Arrays;
+
 public class MatchStickToSquare {
     public boolean makesquare(int[] nums) {
         if(nums==null || nums.length<4)

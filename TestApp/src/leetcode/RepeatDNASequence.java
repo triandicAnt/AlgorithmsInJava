@@ -1,3 +1,9 @@
+package leetcode;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class RepeatDNASequence {
     public List<String> findRepeatedDnaSequences(String s) {
         List<String> list = new ArrayList<>();

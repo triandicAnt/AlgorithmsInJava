@@ -1,3 +1,5 @@
+package leetcode;
+
 public class UniqueSubstrinInWrap {
     public int findSubstringInWraproundString(String p) {
         if(p==null || p.length()==0)

@@ -1,3 +1,5 @@
+package leetcode;
+
 public class JumpGameII {
     public int jump(int[] nums) {
         int steps =0;

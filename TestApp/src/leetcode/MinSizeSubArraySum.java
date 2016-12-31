@@ -1,3 +1,5 @@
+package leetcode;
+
 public class MinSizeSubArraySum {
     public int minSubArrayLen(int s, int[] nums) {
         if(nums.length==0||s==0)

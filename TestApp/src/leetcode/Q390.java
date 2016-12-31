@@ -1,4 +1,12 @@
-public class 390 {
+package leetcode;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+public class Q390 {
     List<Integer>[] adjList;
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
         if (n==1 || edges.length==0)

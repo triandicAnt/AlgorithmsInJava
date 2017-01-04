@@ -185,4 +185,35 @@ class Trie{
         current = nextChild;
         return searchWithRecursive( current,  word, index+1);
     }
+     // delete node
+    
+    public boolean delete(String word){
+        TrieNode current = this.root;
+        return delete(current, word, 0);
+    }
+    
+    public boolean delete(TrieNode current, String word, int index){
+        if(index == word.length()){
+            // return false if this is not the end of word
+            if(current.endOfWord == false)
+                return false;
+            current.endOfWord = false;
+            return current.children.size()==0;
+        }
+        // get the character
+        char c = word.charAt(index);
+        TrieNode newChild = current.children.get(c);
+        // if newChild is null then that word does not exist
+        if(newChild == null)
+            return false;
+        //current  = newChild;
+        
+        // check the value of next returned char
+        boolean shouldDelete = delete(newChild,word,index+1);
+        if(shouldDelete==true){
+            current.children.remove(c);
+            return current.children.size()==0;
+        }
+        return false;
+    }
 }

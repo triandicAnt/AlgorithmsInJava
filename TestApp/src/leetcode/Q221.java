@@ -1,3 +1,7 @@
+package leetcode;
+
+import java.util.Arrays;
+
 public class Q221 {
     public int maximalSquare(char[][] matrix) {
         if(matrix == null || matrix.length==0)

@@ -1,6 +1,7 @@
+package com.datastructure.tries;
+
 /* package whatever; // don't place package name! */
 
-import java.io.*;
 import java.util.*;
 
 public class Trie2

@@ -1,3 +1,5 @@
+package leetcode;
+
 public class Q79 {
     public boolean exist(char[][] board, String word) {
         if(board.length==0)

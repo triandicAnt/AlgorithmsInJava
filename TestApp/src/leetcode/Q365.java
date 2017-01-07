@@ -1,3 +1,5 @@
+package leetcode;
+
 public class Q365 {
     public boolean canMeasureWater(int x, int y, int z) {
         if(x+y<z)

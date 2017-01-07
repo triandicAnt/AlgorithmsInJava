@@ -1,3 +1,5 @@
+package leetcode;
+
 import java.io.*;
 import java.util.*;
 
@@ -8,7 +10,7 @@ public class Q208
        Trie trie = new Trie();
         String[] arr = {"abc","abgl","cdf","aecd","lmn"};
         for(String s: arr){
-           trie.insertIterative(s);
+          // trie.insertIterative(s);
         }
         
         System.out.println( trie);
@@ -27,13 +29,13 @@ public class Q208
         System.out.println("\n"+ trie.search("lmno"));
         */
         //System.out.println( trie1);
-        System.out.println(trie.searchWithIterative("a") == trie.searchWith("a"));
-        System.out.println(trie.searchWithIterative("ab")== trie.searchWith("ab"));
-        System.out.println(trie.searchWithIterative("lmn")== trie.searchWith("lmn"));
-        System.out.println(trie.searchWithIterative("cdf")== trie.searchWith("cdf"));
-        System.out.println(trie.searchWithIterative("lmd")== trie.searchWith("lmd"));
-        System.out.println(trie.searchWithIterative("aed")== trie.searchWith("aed"));
-        System.out.println(trie.searchWithIterative("ae")== trie.searchWith("ae"));
+//        System.out.println(trie.searchWithIterative("a") == trie.searchWith("a"));
+//        System.out.println(trie.searchWithIterative("ab")== trie.searchWith("ab"));
+//        System.out.println(trie.searchWithIterative("lmn")== trie.searchWith("lmn"));
+//        System.out.println(trie.searchWithIterative("cdf")== trie.searchWith("cdf"));
+//        System.out.println(trie.searchWithIterative("lmd")== trie.searchWith("lmd"));
+//        System.out.println(trie.searchWithIterative("aed")== trie.searchWith("aed"));
+//        System.out.println(trie.searchWithIterative("ae")== trie.searchWith("ae"));
     }
 }
 

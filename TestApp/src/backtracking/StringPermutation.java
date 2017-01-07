@@ -1,4 +1,5 @@
-/* package whatever; // don't place package name! */
+package backtracking;
+
 
 import java.io.*;
 import java.util.*;

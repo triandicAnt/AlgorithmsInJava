@@ -1,3 +1,7 @@
+package leetcode;
+
+import java.util.Arrays;
+
 public class Q43 {
     public String multiply(String num1, String num2) {
         if(num1=="0" || num2 == "0")

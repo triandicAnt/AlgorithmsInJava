@@ -1,3 +1,5 @@
+package leetcode;
+
  class NumMatrix {
     int temp [][];
     public NumMatrix(int[][] matrix) {

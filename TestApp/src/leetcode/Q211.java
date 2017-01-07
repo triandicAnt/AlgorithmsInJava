@@ -1,13 +1,15 @@
+package leetcode;
+
 public class Q211 {
-    Trie root = new Trie();
+    Trie1 root = new Trie1();
     // Adds a word into the data structure.
     public void addWord(String word) {
         char[] arr = word.toCharArray();
-        Trie current = root;
+        Trie1 current = root;
         for(int i = 0; i<arr.length;i++){
             char c = arr[i];
             if(current.children[c-'a'] == null)
-                current.children[c-'a'] = new Trie();
+                current.children[c-'a'] = new Trie1();
             current = current.children[c-'a'];
         }
         current.word = word;
@@ -19,7 +21,7 @@ public class Q211 {
         char [] arr = word.toCharArray();
         return searchBackTrack(arr, 0,root);
     }
-    public boolean searchBackTrack(char [] arr, int n, Trie node){
+    public boolean searchBackTrack(char [] arr, int n, Trie1 node){
         if(n== arr.length)
             return (node.word!=null);
         char c = arr[n];
@@ -35,11 +37,11 @@ public class Q211 {
         return false;
     }
 }
-class Trie{
-    Trie [] children;
+class Trie1{
+    Trie1 [] children;
     String word;
-    public Trie(){
-        children = new Trie[26];
+    public Trie1(){
+        children = new Trie1[26];
     }
 }
 

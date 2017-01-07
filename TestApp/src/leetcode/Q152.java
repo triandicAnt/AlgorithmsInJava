@@ -1,3 +1,5 @@
+package leetcode;
+
 public class Q152 {
     public int maxProduct(int[] nums) {
         if(nums==null || nums.length<=0)

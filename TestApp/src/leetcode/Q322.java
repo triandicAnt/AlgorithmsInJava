@@ -1,3 +1,7 @@
+package leetcode;
+
+import java.util.Arrays;
+
 public class Q322 {
     public int coinChange(int[] coins, int amount) {
         int n = coins.length;

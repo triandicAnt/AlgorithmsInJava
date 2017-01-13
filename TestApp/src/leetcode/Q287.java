@@ -1,3 +1,7 @@
+package leetcode;
+
+import java.util.HashMap;
+
 public class Q287 {
     public String fractionToDecimal(int num, int den) {
         if(num==0)

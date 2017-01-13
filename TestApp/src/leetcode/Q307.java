@@ -1,12 +1,14 @@
+package leetcode;
+
 public class Q307{
 
 }
-class NumArray {
+class NumArray1 {
     int [] segArray;
     int [] lazy;
     int n;
     int [] nums;
-    public NumArray(int[] nums) {
+    public NumArray1(int[] nums) {
         int l = nums.length;
         if(l==0)
             return;

@@ -1,3 +1,5 @@
+package leetcode;
+
 public class Q121 {
     public int maxProfit(int[] prices) {
         if(prices==null || prices.length==0)

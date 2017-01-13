@@ -1,3 +1,7 @@
+package leetcode;
+
+import java.util.Arrays;
+
 public class Q377 {
     int count = 0;
     int [] dp;

@@ -1,3 +1,5 @@
+package leetcode;
+
 public class Q70 {
     public int climbStairs(int n) {
         if(n<2)

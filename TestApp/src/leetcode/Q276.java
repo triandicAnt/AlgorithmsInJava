@@ -1,3 +1,5 @@
+package leetcode;
+
 
 public class Q276{
 public static int paintFence(int n , int k){

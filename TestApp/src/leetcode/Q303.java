@@ -1,3 +1,5 @@
+package leetcode;
+
  class NumArray {
     int [] segArray ;
     int n ;

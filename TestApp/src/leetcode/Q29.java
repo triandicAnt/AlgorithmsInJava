@@ -1,3 +1,5 @@
+package leetcode;
+
 public class Q29 {
     public int divide(int dividend, int divisor) {
         if(divisor==0)

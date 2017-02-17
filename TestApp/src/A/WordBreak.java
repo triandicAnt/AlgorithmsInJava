@@ -29,4 +29,21 @@ public class WordBreak {
         }
         return temp[0][n-1];
     }
+     public boolean wordBreak(String s, List<String> wordDict) {
+   
+       if(s==null || s.length()==0)
+            return true;
+       int n = s.length();
+       boolean[]temp = new boolean[n+1];
+       temp[0] = true;
+       for(int i = 1; i<=n;i++){
+           for(int j = 0;j<i;j++){
+               if(temp[j] && wordDict.contains(s.substring(j,i))){
+                   temp[i] = true;
+                   break;
+               }
+           }
+       }
+       return temp[n];
+   }
 }

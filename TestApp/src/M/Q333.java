@@ -121,7 +121,7 @@ class Q333{
             value.max = root.data;
          else
              value.max = right.max;
-         if(left.max<=root.data && right.min>root.data){
+         if(left.max<=root.data && right.min>root.data && left.isBST && right.isBST){
              value.size = left.size+right.size+1;
              value.isBST = true;
              return value;

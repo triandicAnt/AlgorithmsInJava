@@ -1,20 +1,23 @@
+import java.lang.Math; // headers MUST be above the first class
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
-// one class needs to have a main() method
-public class PhoneNumberValidate
+public class HelloWorld
 {
   public static void main(String[] args)
   {
-    String s1 = "9842029151";
-    String s2 = "984-202-9151";
-    String s3 = "984-202-91";
-    String s4 = "984202151";
-    String s5 = "984.202.9151";
+    /*
+    String s1 = "1234567890";
+    String s2 = "123-456-7890";
+    String s3 = "123-456-78";
+    String s4 = "23456789";
+    String s5 = "123.345.6789";
     System.out.println(checkNumber(s1));
     System.out.println(checkNumber(s2));
     System.out.println(checkNumber(s3));
     System.out.println(checkNumber(s4));
     System.out.println(checkNumber(s5));
+    */
+    
   }
   public static boolean checkNumber(String s){
    	Pattern pattern = Pattern.compile("\\d\\d\\d[-]?\\d\\d\\d[-]?\\d\\d\\d\\d");

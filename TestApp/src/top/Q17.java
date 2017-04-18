@@ -17,20 +17,18 @@ public class Q17 {
         map.put('9', "wxyz");
         StringBuffer sb = new StringBuffer();
         // dfs
-        dfs(digits,sb,list,0,map);
+        dfs(digits, map, list, 0, "");
         return list;
     }
-    public void dfs(String digits, StringBuffer sb, List<String> list, int step, Map<Character, String> map){
-        if(step == digits.length()){
-            list.add(sb.toString());
+    public void dfs(String digits, Map<Character, String> map, List<String> list, int index, String temp){
+        if(digits.length()==temp.length()){
+            list.add(temp);
             return;
         }
-        char c = digits.charAt(step);
-        String s = map.get(c);
-        for(int i = 0;i<s.length();i++){
-            sb.append(s.charAt(i));
-            dfs(digits,sb,list,step+1,map);
-            sb.deleteCharAt(sb.length()-1);
+        char c = digits.charAt(index);
+        String t = map.get(c);
+        for(char ch : t.toCharArray()){
+            dfs(digits, map, list, index+1, temp + ch);
         }
     }
 

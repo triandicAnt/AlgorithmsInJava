@@ -52,7 +52,7 @@ class Heap<T extends Comparable<T>>{
 	  }
   public MaxHeap createAndBuildHeap(List<T>array, int size){
    		 mH = new MaxHeap(size,array);
-    	for(int i = (2*size-2)/2; i>=0;i--){
+    	for(int i = (size-2)/2; i>=0;i--){ //
       		heapify(mH,i);
     	}
     return mH;

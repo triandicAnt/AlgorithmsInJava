@@ -1,4 +1,4 @@
-# JavaTestCodes
+# Algorithms In Java
 java codes
 
 ```

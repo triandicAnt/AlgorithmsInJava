@@ -44,5 +44,35 @@ public class LongestPalindromicSubstring {
 		            result.offer(s.substring(i,j+1));
 		            i--; j++;
 		      }
-		  }
+		  }    public String longestPalindrome(String s) {
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        int n = s.length();
+        boolean[][] pal = new boolean[n][n];
+        String p = "";
+        // 1 length
+        for (int i=0; i<n;i++) {
+            pal[i][i] = true;
+            p = s.substring(i, i+1);
+        }
+        // 2
+        for(int i=0;i<n-1;i++) {
+            if(s.charAt(i) == s.charAt(i+1)) {
+                pal[i][i+1] = true;
+                p = s.substring(i, i+2);
+            }
+        }
+        for (int cur = 3 ; cur <= n; cur++) {
+            for (int i =0; i<n-cur+1;i++) {
+                int j = i+cur-1;
+                if (s.charAt(i) == s.charAt(j) && pal[i+1][j-1]) {
+                    pal[i][j] = true;
+                    p = s.substring(i, j+1);
+                }
+            }
+        }
+        return p;
+    }
+
 }

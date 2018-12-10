@@ -60,6 +60,38 @@ public class MedianOfSortedArrays {
 		else
 			return findKth(k-k/2, a1, a2, i, m2+1);
 	}
+	
+	/*
+	    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int x = nums1.length;
+        int y = nums2.length;
+        if (x > y)
+            return findMedianSortedArrays(nums2, nums1);
+        int low = 0;
+        int high = x;
+        while(low <= high) {
+            int partX = (low + high)/2;
+            int partY = (x+y+1)/2 - partX;
+            int minLeftX = partX == 0 ? Integer.MIN_VALUE : nums1[partX-1];
+            int maxRightX = partX == x ? Integer.MAX_VALUE : nums1[partX];
+            int minLeftY = partY == 0 ? Integer.MIN_VALUE : nums2[partY-1];
+            int maxRightY = partY == y ? Integer.MAX_VALUE : nums2[partY];
+            if (minLeftX <= maxRightY && minLeftY <= maxRightX) {
+                // if even and avg
+                if ((x+y)%2 == 0) {
+                    return (double) (Math.max(minLeftX, minLeftY) + Math.min(maxRightX, maxRightY))/2.0;
+                } else {
+                    return (double)Math.max(minLeftX, minLeftY);
+                }
+            } else if (minLeftX > maxRightY) {
+                high = partX - 1;
+            } else {
+                low = partX + 1;
+            }
+        }
+        return -1.0;
+    }
+*/
 }
 
 /**
